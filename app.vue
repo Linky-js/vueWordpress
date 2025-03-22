@@ -1,9 +1,9 @@
 <template>
   <Head>
-    <Title>Lumatica - интернет магазин освещения</Title>
+    <Title>Пергамент - бюро креативных решений</Title>
     <Meta
       name="description"
-      content="Магазин освещения в Краснодаре с широким ассортиментом продукции"
+      content="Магазин выставок"
     />
     <Meta name="yandex-verification" content="e490c6f4b37e1903" />
     <Meta
@@ -12,9 +12,4 @@
     />
   </Head>
   <NuxtPage />
-  <WidjetAudio2
-    v-if="audioWidjet"
-    :item="audioWidjet"
-    @closeWidjet="audioWidjet = null"
-  />
 </template>
