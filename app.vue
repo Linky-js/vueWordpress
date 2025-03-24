@@ -1,3 +1,6 @@
+<script setup>
+import HeaderBlock from '~/components/HeaderBlock.vue';
+</script>
 <template>
   <Head>
     <Title>Пергамент - бюро креативных решений</Title>
@@ -11,5 +14,7 @@
       content="FNh4WtLjLHTiTomFdGINF_a52SB5CrTD0Uo-8xbUWV0"
     />
   </Head>
+  <HeaderBlock />
   <NuxtPage />
+  
 </template>
