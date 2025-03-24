@@ -3,7 +3,7 @@ import { ref, watch } from "vue";
 
 const images = ref([]);
 const { data: page } = useFetch(
-  `https://pergament.dmgug.ru//wp-json/wp/v2/pages/9?acf_fields=true`
+  `https://pergament.dmgug.ru/wp-json/wp/v2/pages/9?acf_fields=true`
 );
 watch(
   page,
@@ -26,6 +26,7 @@ async function getImageUrl(id) {
 </script>
 <template>
   <div>
+    
   </div>
 </template>
 <style scoped>

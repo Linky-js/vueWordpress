@@ -1,9 +1,50 @@
 <script setup>
-   
+import logo from '~/assets/img/logo.svg'
+
+const navLinks = ref([
+    {
+        id: 1,
+        title: 'Услуги',
+        link: '/services'
+    },
+    {
+        id: 2,
+        title: 'Проекты',
+        link: '/projects'
+    },
+    {
+        id: 3,
+        title: 'Принципы',
+        link: '/principles'
+    },
+    {
+        id: 4,
+        title: 'Контакты',
+        link: '/contacts'
+    }
+])
 </script>
 
 <template>
-  <div>
-     
-  </div>
+    <header>
+        <div class="container">
+            <div class="header__content">
+                <div class="logo">
+                    <NuxtLink to="/">    
+                        <img :src="logo" alt="logo">
+                    </NuxtLink>
+                    <nav>
+                        <ul>
+                            <li v-for="link in navLinks" :key="link.id">
+                                <NuxtLink :to="link.link">
+                                    {{ link.title }}
+                                </NuxtLink>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    
 </template>
