@@ -26,7 +26,6 @@ async function getImageUrl(id) {
 </script>
 <template>
   <div>
-    <img :src="images[0]" alt="" />
   </div>
 </template>
 <style scoped>
