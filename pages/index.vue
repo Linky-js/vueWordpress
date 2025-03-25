@@ -25,8 +25,12 @@ async function getImageUrl(id) {
 }
 </script>
 <template>
-  <div>
-    
+  <div class="container-big">
+    <Menu />
+
+    <div class="container">
+      <Section1/>
+    </div>
   </div>
 </template>
 <style scoped>
