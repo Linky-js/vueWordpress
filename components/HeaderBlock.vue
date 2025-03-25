@@ -52,12 +52,12 @@ const navLinks = ref([
 
 <style lang="scss" scoped>
 .header {
-  padding: 30px;
   padding: 28px 0;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
+  z-index: 100;
 
   &__inner {
     display: flex;

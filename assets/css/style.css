@@ -5,6 +5,13 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Gill Sans';
+  src: url('../fonts/Gill-Sans.woff2') format('woff2'),
+    url('../fonts/Gill-Sans.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 * {
@@ -83,16 +90,11 @@ textarea {
   resize: none;
 }
 
-body{
-  background-image: url(../img/start-bg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .container-big {
   max-width: 1336px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 .container {
   width: 100%;
