@@ -22,7 +22,7 @@ const suptitle = ref("Бюро креативных решений");
 
 <style lang="scss" scoped>
 .section-1 {
-  padding-top: 204px;
+  margin-top: -350px;
 
   &__top {
     display: flex;

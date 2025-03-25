@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from "vue";
+import Sidebar from "~/components/Sidebar.vue";
 
 const images = ref([]);
 const { data: page } = useFetch(
@@ -26,12 +27,28 @@ async function getImageUrl(id) {
 </script>
 <template>
   <div class="container-big">
-    <Menu />
-
-    <div class="container">
-      <Section1/>
+    <div class="section__main">
+      <Sidebar class="sidebar" />
+  
+      <div class="container">
+        <Section1/>
+      </div>
     </div>
   </div>
 </template>
 <style scoped>
+.container-big{
+  position: relative;
+}
+.section__main{
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.sidebar{
+  position: sticky;
+  top: 264px;
+  left: 0;
+}
+
 </style>

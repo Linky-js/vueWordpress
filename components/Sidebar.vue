@@ -1,30 +1,17 @@
 <script setup>
+import { useRoute } from "vue-router";
+import { ref, computed } from "vue";
+
+const route = useRoute();
+
+const pathPage = computed(() => route.path); 
+
 const navLinks = ref([
-  {
-    id: 1,
-    name: "Главная",
-    url: "/",
-  },
-  {
-    id: 2,
-    title: "Услуги",
-    link: "/services",
-  },
-  {
-    id: 3,
-    title: "Проекты",
-    link: "/projects",
-  },
-  {
-    id: 4,
-    title: "Принципы",
-    link: "/principles",
-  },
-  {
-    id: 5,
-    title: "Контакты",
-    link: "/contacts",
-  },
+  { id: 1, title: "Главная", link: "/" },
+  { id: 2, title: "Услуги", link: "/services" },
+  { id: 3, title: "Проекты", link: "/projects" },
+  { id: 4, title: "Принципы", link: "/principles" },
+  { id: 5, title: "Контакты", link: "/contacts" },
 ]);
 </script>
 
@@ -33,9 +20,13 @@ const navLinks = ref([
     <nav class="left-menu">
       <ul class="left-menu__list">
         <li class="left-menu__item" v-for="link in navLinks" :key="link.id">
-          <NuxtLink class="left-menu__link" :to="link.link">{{
-            link.title
-          }}</NuxtLink>
+          <NuxtLink
+            class="left-menu__link"
+            :class="{ active: pathPage === link.link }"
+            :to="link.link"
+          >
+            {{ link.title }}
+          </NuxtLink>
         </li>
       </ul>
     </nav>
@@ -44,13 +35,13 @@ const navLinks = ref([
 
 <style lang="scss" scoped>
 .aside {
-  position: absolute;
   display: flex;
   align-items: center;
   top: 0;
   bottom: 0;
   left: 0;
   max-width: 62px;
+  height: max-content;
 }
 
 .left-menu {

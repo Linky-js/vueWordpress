@@ -1,13 +1,10 @@
 <script setup>
-import HeaderBlock from '~/components/HeaderBlock.vue';
+import HeaderBlock from "~/components/HeaderBlock.vue";
 </script>
 <template>
   <Head>
     <Title>Пергамент - бюро креативных решений</Title>
-    <Meta
-      name="description"
-      content="Магазин выставок"
-    />
+    <Meta name="description" content="Магазин выставок" />
     <Meta name="yandex-verification" content="e490c6f4b37e1903" />
     <Meta
       name="google-site-verification"
@@ -15,11 +12,14 @@ import HeaderBlock from '~/components/HeaderBlock.vue';
     />
   </Head>
   <HeaderBlock />
+  <div class="block__header"></div>
   <NuxtPage />
-
 </template>
-<style >
-body{
-  background: #111;
+<style scoped>
+.block__header {
+  height: 483px;
+  flex-shrink: 0;
+  display: block;
+  width: 100%;
 }
 </style>
