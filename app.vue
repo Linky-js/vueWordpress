@@ -16,5 +16,10 @@ import HeaderBlock from '~/components/HeaderBlock.vue';
   </Head>
   <HeaderBlock />
   <NuxtPage />
-  
+
 </template>
+<style >
+body{
+  background: #111;
+}
+</style>
