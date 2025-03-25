@@ -24,7 +24,7 @@ const suptitle = ref("Бюро креативных решений");
 
 <style lang="scss" scoped>
 .pergament {
-  padding-top: 204px;
+  margin-top: -350px;
 
   &__top {
     display: flex;
@@ -39,7 +39,7 @@ const suptitle = ref("Бюро креативных решений");
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
-    line-height: calc(23/20*100%);
+    line-height: calc(23 / 20 * 100%);
     color: #ffffff;
   }
 
@@ -56,11 +56,11 @@ const suptitle = ref("Бюро креативных решений");
     gap: 20px;
   }
 
-  &__title{
+  &__title {
     position: relative;
   }
 
-  &__picture{
+  &__picture {
     margin-top: -58px;
   }
 }

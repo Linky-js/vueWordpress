@@ -2,8 +2,8 @@
 import { ref, watch } from "vue";
 import Pergament from "~/components/Pergament.vue";
 import Sidebar from "~/components/Sidebar.vue";
-
-import Sidebar from "~/components/Sidebar.vue";
+import Expertise from "~/components/Expertise.vue";
+import Projects from "~/components/Projects.vue";
 
 const images = ref([]);
 const { data: page } = useFetch(
@@ -34,7 +34,11 @@ async function getImageUrl(id) {
       <Sidebar class="sidebar" />
   
       <div class="container">
-        <Section1/>
+        <Pergament/>
+        <Services/>
+        <Expertise/>
+        <Projects/>
+
       </div>
     </div>
   </div>
