@@ -5,6 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Gill Sans';
   src: url('../fonts/Gill-Sans.woff2') format('woff2'),
@@ -23,6 +24,14 @@
 html,
 body {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFF;
+  background-image: url('../img/start-bg.png');
+  background-size: 100% 559px;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 
 body::-webkit-scrollbar {
@@ -91,13 +100,16 @@ textarea {
 }
 
 .container-big {
-  max-width: 1336px;
+  max-width: 1376px;
   width: 100%;
   margin: 0 auto;
   position: relative;
+  padding: 0 20px;
 }
+
 .container {
   width: 100%;
-  max-width: 1170px;
+  max-width: 1396px;
   margin: 0 auto;
+  padding: 0 30px;
 }

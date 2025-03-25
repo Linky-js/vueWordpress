@@ -1,7 +1,7 @@
 <script setup>
 import logo from "~/assets/img/logo.svg";
-import CallBackBtn from "./UI/CallBackBtn.vue";
 
+import CallBackBtn from "./UI/CallBackBtn.vue";
 const navLinks = ref([
   {
     id: 1,
@@ -30,11 +30,13 @@ const navLinks = ref([
   <header class="header">
     <div class="container-big">
       <div class="header__inner">
+
         <div class="logo">
           <NuxtLink to="/">
             <img :src="logo" alt="logo" />
           </NuxtLink>
         </div>
+
         <nav class="menu">
           <ul class="menu__list">
             <li class="menu__item" v-for="link in navLinks" :key="link.id">
@@ -50,13 +52,11 @@ const navLinks = ref([
   </header>
 </template>
 
+
 <style lang="scss" scoped>
 .header {
   padding: 28px 0;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
+  position: relative;
   z-index: 100;
 
   &__inner {
@@ -102,3 +102,4 @@ const navLinks = ref([
   }
 }
 </style>
+
