@@ -1,5 +1,8 @@
 <script setup>
 import { ref, watch } from "vue";
+import Pergament from "~/components/Pergament.vue";
+import Sidebar from "~/components/Sidebar.vue";
+
 
 const images = ref([]);
 const { data: page } = useFetch(
@@ -26,12 +29,9 @@ async function getImageUrl(id) {
 </script>
 <template>
   <div class="container-big">
-    <Menu />
+    <Sidebar />
 
-    <div class="container">
-      <Section1/>
-    </div>
+    <Pergament />
   </div>
 </template>
-<style scoped>
-</style>
+<style scoped></style>

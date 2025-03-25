@@ -10,18 +10,20 @@ const suptitle = ref("Бюро креативных решений");
 </script>
 
 <template>
-  <section class="section-1">
-    <div class="section-1__top">
-      <h2 class="section-1__suptitle">{{ suptitle }}</h2>
-      <div class="section-1__summary" v-html="summary"></div>
+  <section class="pergament">
+    <div class="container">
+      <div class="pergament__top">
+        <h2 class="pergament__suptitle">{{ suptitle }}</h2>
+        <div class="pergament__summary" v-html="summary"></div>
+      </div>
+      <img class="pergament__title" :src="title" alt="Пергамент" />
+      <img class="pergament__picture" :src="picture" alt="" />
     </div>
-    <img class="section-1__title" :src="title" alt="Пергамент" />
-    <img class="section-1__picture" :src="picture" alt="" />
   </section>
 </template>
 
 <style lang="scss" scoped>
-.section-1 {
+.pergament {
   padding-top: 204px;
 
   &__top {
