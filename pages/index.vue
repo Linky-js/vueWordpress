@@ -32,29 +32,28 @@ async function getImageUrl(id) {
   <div class="container-big">
     <div class="section__main">
       <Sidebar class="sidebar" />
-  
-      <div class="container">
-        <Pergament/>
-        <Services/>
-        <Expertise/>
-        <Projects/>
 
+      <div>
+        <Pergament />
+        <Services />
+        <Expertise />
+        <Projects />
       </div>
     </div>
   </div>
 </template>
-<style scoped>.container-big{
+<style scoped>
+.container-big {
   position: relative;
 }
-.section__main{
+.section__main {
   width: 100%;
   display: flex;
   position: relative;
 }
-.sidebar{
+.sidebar {
   position: sticky;
   top: 264px;
   left: 0;
 }
-
 </style>

@@ -13,7 +13,7 @@ defineProps({
 <template>
   <div
     class="arrow-link"
-    :style="{ color: color, borderColor: borderColor}"
+    :style="{borderColor: borderColor}"
   >
     <svg
       width="16"
@@ -26,7 +26,7 @@ defineProps({
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M12.793 8L9.64603 11.146L10.354 11.853L14.707 7.5L10.354 3.146L9.64603 3.854L12.793 7H1.50003V8H12.793Z"
-        fill="#2C2F8D"
+        :fill="color"
       />
     </svg>
   </div>
