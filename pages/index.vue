@@ -30,20 +30,19 @@ async function getImageUrl(id) {
 }
 </script>
 <template>
-  <div>
-    <div class="container-big">
-      <div class="section__main">
-        <Sidebar class="sidebar" />
-  
-        <div>
-          <Pergament />
-          <Services />
-          <Expertise />
-          <Projects />
-        </div>
+  <div class="container-big">
+    <div class="section__main">
+      <Sidebar class="sidebar" />
+
+      <div>
+        <Pergament />
+        <Services />
+        <Expertise />
+        <Projects />
+        <Clients />
+        <CallbackBlock />
       </div>
     </div>
-    <Clients/>
   </div>
 </template>
 <style scoped>

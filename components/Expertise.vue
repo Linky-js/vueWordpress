@@ -24,7 +24,7 @@ const subtitle = ref(
     font-family: "Onest";
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 38px;
     line-height: 120%;
     letter-spacing: -0.05em;
     color: #a1a1a1;
