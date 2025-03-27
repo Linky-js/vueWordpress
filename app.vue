@@ -1,5 +1,6 @@
 <script setup>
 import HeaderBlock from "~/components/HeaderBlock.vue";
+import FooterBlock from "~/components/FooterBlock.vue";
 </script>
 <template>
   <Head>
@@ -14,6 +15,7 @@ import HeaderBlock from "~/components/HeaderBlock.vue";
   <HeaderBlock />
   <div class="block__header"></div>
   <NuxtPage />
+  <FooterBlock/>
 </template>
 <style scoped>
 .block__header {
