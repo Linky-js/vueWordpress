@@ -4,6 +4,7 @@ import Pergament from "~/components/Pergament.vue";
 import Sidebar from "~/components/Sidebar.vue";
 import Expertise from "~/components/Expertise.vue";
 import Projects from "~/components/Projects.vue";
+import Clients from "~/components/Clients.vue";
 
 const images = ref([]);
 const { data: page } = useFetch(
@@ -29,17 +30,20 @@ async function getImageUrl(id) {
 }
 </script>
 <template>
-  <div class="container-big">
-    <div class="section__main">
-      <Sidebar class="sidebar" />
-
-      <div>
-        <Pergament />
-        <Services />
-        <Expertise />
-        <Projects />
+  <div>
+    <div class="container-big">
+      <div class="section__main">
+        <Sidebar class="sidebar" />
+  
+        <div>
+          <Pergament />
+          <Services />
+          <Expertise />
+          <Projects />
+        </div>
       </div>
     </div>
+    <Clients/>
   </div>
 </template>
 <style scoped>
