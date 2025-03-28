@@ -1,4 +1,18 @@
-<script setup></script>
+<script setup>
+import CallbackBlock from '~/components/CallBackBlock.vue';
+import FrontProject from '~/components/FrontProject.vue';
+import Sidebar from '~/components/Sidebar.vue';
+
+
+</script>
 <template>
-    <div></div>
+  <div class="container-big">
+    <div class="section__main">
+      <Sidebar class="sidebar" />
+      <div>
+        <FrontProject/>
+        <CallbackBlock/>
+      </div>
+    </div>
+  </div>
 </template>
