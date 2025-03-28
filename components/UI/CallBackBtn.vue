@@ -46,14 +46,21 @@ const props = defineProps({
   &:hover{
     background-color: #3a3562;
   }
-
+  
   &.light {
     border: 3px solid #e8e8e8;
     padding: 22px;
     color: #333333;
-
+    
     svg path{
       fill: #262626;
+      transition: all .3s ease;
+    }
+    &:hover{
+      color: #ffffff;
+      svg path{
+        fill: #ffffff;
+      }
     }
   }
 }

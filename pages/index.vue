@@ -1,6 +1,11 @@
 <script setup>
 import { ref, watch } from "vue";
+import Pergament from "~/components/Pergament.vue";
 import Sidebar from "~/components/Sidebar.vue";
+import Expertise from "~/components/Expertise.vue";
+import Projects from "~/components/Projects.vue";
+import Clients from "~/components/Clients.vue";
+import CallbackBlock from "~/components/CallbackBlock.vue";
 
 const images = ref([]);
 const { data: page } = useFetch(
@@ -29,26 +34,30 @@ async function getImageUrl(id) {
   <div class="container-big">
     <div class="section__main">
       <Sidebar class="sidebar" />
-  
-      <div class="container">
-        <Section1/>
+
+      <div>
+        <Pergament />
+        <Services />
+        <Expertise />
+        <Projects />
+        <Clients />
+        <CallbackBlock />
       </div>
     </div>
   </div>
 </template>
 <style scoped>
-.container-big{
+.container-big {
   position: relative;
 }
-.section__main{
+.section__main {
   width: 100%;
   display: flex;
   position: relative;
 }
-.sidebar{
+.sidebar {
   position: sticky;
   top: 264px;
   left: 0;
 }
-
 </style>
