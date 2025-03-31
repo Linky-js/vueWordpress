@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import picture1 from "~/assets/img/clients-1.png";
 import picture2 from "~/assets/img/clients-2.png";
 import picture3 from "~/assets/img/clients-3.png";
@@ -13,8 +13,6 @@ import picture10 from "~/assets/img/clients-10.png";
 import picture11 from "~/assets/img/clients-11.png";
 import picture12 from "~/assets/img/clients-12.png";
 import picture13 from "~/assets/img/clients-13.png";
-
-
 
 const title = ref("Клиенты");
 const subtitle = ref(
@@ -73,8 +71,57 @@ const items = ref([
     id: 13,
     src: picture13,
   },
-
 ]);
+
+const widthClientBefoore = () => {
+  let width = window.innerWidth;
+  let clients = document.querySelector(".clients");
+
+  if (clients) {
+    let beforeClients = window.getComputedStyle(clients, "::before");
+    console.log(width, beforeClients);
+
+    clients.style.setProperty("--before-width", `${width}px`);
+  }
+};
+
+async function postNewFetch() {
+  let url =
+    "https://api.xn--b1agnepfhjfgc3i.fun/web/index.php?r=api-theme/post-list";
+  let params = {
+    name: "Роман",
+    tel: "+7 (999) 999-99-99",
+    text: "У меня есть вопрос",
+  };
+  try {
+    await fetch(
+      url,
+      {
+        method: "POST",
+        body: JSON.stringify(params),
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Bearer: "123132132165456465",
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+onMounted(async () => {
+  widthClientBefoore();
+  await postNewFetch();
+});
 </script>
 
 <template>
@@ -101,10 +148,23 @@ const items = ref([
 .clients {
   margin-top: 100px;
   padding: 100px 0;
-  background-image: url("../assets/img/clients-bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-image: url("../assets/img/clients-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    width: var(--before-width, 100%);
+    z-index: -1;
+  }
 
   &__title {
     font-family: "Onest";
@@ -137,7 +197,7 @@ const items = ref([
     margin-bottom: 50px;
   }
 
-  &__items{
+  &__items {
     max-width: 582px;
     width: 100%;
     display: flex;
@@ -145,7 +205,7 @@ const items = ref([
     gap: 10px;
   }
 
-  &__item{
+  &__item {
     max-width: 138px;
     width: 100%;
     height: 92px;
