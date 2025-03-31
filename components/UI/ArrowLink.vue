@@ -43,5 +43,6 @@ defineProps({
   border-radius: 50%;
   border: 3px solid #e8e8e8;
   transition: all .3s ease-in-out;
+  cursor: pointer;
 }
 </style>

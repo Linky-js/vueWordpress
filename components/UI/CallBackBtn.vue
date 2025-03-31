@@ -42,6 +42,7 @@ const props = defineProps({
   border: 3px solid #3a3562;
   background-color: transparent;
   transition: all .3s ease;
+  cursor: pointer;
 
   &:hover{
     background-color: #3a3562;
