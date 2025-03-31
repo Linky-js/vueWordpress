@@ -55,7 +55,7 @@ const tabActive = ref(0);
       <h1 class="front-project__title">{{ title }}</h1>
       <div class="front-project__inner">
         <div class="front-project__tabs">
-          <div
+          <a
             class="front-project__tab"
             v-for="(tab, index) in tabs"
             :key="tab.id"
@@ -75,7 +75,7 @@ const tabActive = ref(0);
                 class="front-project__tab-line"
               ></div>
             </div>
-          </div>
+          </a>
         </div>
         <ProjectItems/>
       </div>

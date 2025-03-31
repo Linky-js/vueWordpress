@@ -5,7 +5,7 @@ import Sidebar from "~/components/Sidebar.vue";
 import Expertise from "~/components/Expertise.vue";
 import Projects from "~/components/Projects.vue";
 import Clients from "~/components/Clients.vue";
-import CallbackBlock from "~/components/CallbackBlock.vue";
+import CallbackBlock from "~/components/CallBackBlock.vue";
 
 const images = ref([]);
 const { data: page } = useFetch(
@@ -59,5 +59,6 @@ async function getImageUrl(id) {
   position: sticky;
   top: 264px;
   left: 0;
+  z-index: 2;
 }
 </style>

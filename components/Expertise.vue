@@ -1,10 +1,40 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const title = ref("наша экспертиза");
 const subtitle = ref(
   "В РАЗРАБОТКЕ КОНЦЕПЦИИ, ДИЗАЙНА И ТЕХНИЧЕСКИХ РЕШЕНИЙ ПОМОГАЕТ СОЗДАВАТЬ СОВРЕМЕННЫЕ ПРОЕКТЫ \nИ ОБОГАЩАТЬ КУЛЬТУРНЫЙ КОД СТРАНЫ"
 );
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
+  let subtitle = document.querySelector(".expertise__subtitle");
+  const words = subtitle.innerText.split(" ");
+  subtitle.innerHTML = words
+    .map((word) => `<span style="color: #a1a1a1">${word}</span>`)
+    .join(" ");
+
+  const spans = subtitle.querySelectorAll("span");
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".expertise .container",
+      start: "top bottom-=200",
+      end: "top center-=100",
+      scrub: 1.5,
+    },
+  });
+
+  spans.forEach((span) => {
+    if (span === spans[spans.length - 1]) {
+      tl.to(span, { color: "#333", duration: 1, ease: "none" });
+    } else {
+      tl.to(span, { color: "#333", duration: 1, ease: "none" })
+    }
+  });
+});
 </script>
 
 <template>
