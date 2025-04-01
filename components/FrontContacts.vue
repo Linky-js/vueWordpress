@@ -1,0 +1,163 @@
+<script setup>
+import { ref } from "vue";
+import Breadcrumbs from "~/components/UI/Breadcrumbs.vue";
+import map from "~/assets/img/map.png";
+import CallBackBtn from "./UI/CallBackBtn.vue";
+
+const breadcrumbs = ref([
+  {
+    id: 1,
+    name: "Главная",
+    url: "/",
+  },
+  {
+    id: 2,
+    name: "Контакты",
+    url: "/contacts",
+  },
+]);
+const title = ref("Контакты");
+const subtitle = ref("Звоните, пишите<br> или приезжайте в гости");
+const address = ref("Москва, Россия, ул. Красина, 27");
+const whatsapp = ref(["+7 495 255 78 77", "https://web.whatsapp.com/"]);
+const phone = ref("+7 495 255 78 77");
+const mail = ref("hello@pergament.ru");
+const socials = ref([
+  {
+    title: "behance",
+    link: "/",
+  },
+  {
+    title: "vk group",
+    link: "/",
+  },
+]);
+</script>
+
+<template>
+  <section class="front-contacts">
+    <div class="container">
+      <Breadcrumbs :breadcrumbs="breadcrumbs" />
+      <h1 class="front-contacts__title">{{ title }}</h1>
+      <p class="front-contacts__subtitle" v-html="subtitle"></p>
+      <img class="front-contacts__map" :src="map" alt="" />
+      <div class="front-contacts__items">
+        <div class="front-contacts__item">
+          <h4 class="front-contacts__item-title">офис</h4>
+          <div class="front-contacts__item-bottom">
+            <p class="front-contacts__item-text">{{ address }}</p>
+          </div>
+        </div>
+        <div class="front-contacts__item">
+          <h4 class="front-contacts__item-title">whatsapp</h4>
+          <div class="front-contacts__item-bottom">
+            <NuxtLink
+              class="front-contacts__item-text"
+              :to="`tel:${whatsapp[1]}`"
+              >{{ whatsapp[0] }}</NuxtLink
+            >
+          </div>
+        </div>
+        <div class="front-contacts__item">
+          <h4 class="front-contacts__item-title">связаться с нами</h4>
+          <div class="front-contacts__item-bottom">
+            <NuxtLink class="front-contacts__item-text" :to="`mail:${mail}`">{{
+              mail
+            }}</NuxtLink>
+            <NuxtLink class="front-contacts__item-text" :to="`tel:${phone}`">{{
+              phone
+            }}</NuxtLink>
+          </div>
+        </div>
+        <div class="front-contacts__item">
+          <h4 class="front-contacts__item-title">соцсети</h4>
+          <div class="front-contacts__item-bottom">
+            <NuxtLink
+              class="front-contacts__item-text front-contacts__item-soc"
+              v-for="soc in socials"
+              :key="soc.title"
+              :to="soc.link"
+              >{{ soc.title }}</NuxtLink
+            >
+          </div>
+        </div>
+      </div>
+      <div class="front-contacts__bottom">
+        <p class="front-contacts__bottom-text">присоединиться к команде</p>
+        <CallBackBtn class="front-contacts__bottom-btn" color="light"
+          >Отправить резюме</CallBackBtn
+        >
+      </div>
+    </div>
+  </section>
+</template>
+
+<style lang="scss" scoped>
+.front-contacts {
+  margin-top: -600px;
+  margin-bottom: 100px;
+
+  &__breadcrumbs {
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    font-family: "Onest";
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 120%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 72px;
+  }
+
+  &__map {
+    height: 389px;
+    margin-bottom: 56px;
+  }
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 72px;
+    max-width: 924px;
+    margin-bottom: 50px;
+  }
+
+  &__item {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #000000;
+  }
+
+  &__bottom-text,
+  &__item-title {
+    font-family: "Onest";
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(20 / 16 * 100%);
+    color: #8f8f8f;
+    margin-bottom: 10px;
+  }
+
+  &__item-bottom{
+    display: grid;
+    gap: 10px;
+  }
+
+  &__item-text {
+    font-family: "Onest";
+    font-weight: 600;
+    font-size: 22px;
+    line-height: calc(28/22*100%);
+    color: #333333;
+  }
+
+  &__item-soc{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+}
+
+</style>
