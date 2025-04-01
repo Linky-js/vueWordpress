@@ -46,7 +46,7 @@ const navLinks = ref([
             </li>
           </ul>
         </nav>
-        <CallBackBtn />
+        <CallBackBtn link="/">Связаться с нами</CallBackBtn>
       </div>
     </div>
   </header>

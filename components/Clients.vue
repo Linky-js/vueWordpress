@@ -79,48 +79,48 @@ const widthClientBefoore = () => {
 
   if (clients) {
     let beforeClients = window.getComputedStyle(clients, "::before");
-    console.log(width, beforeClients);
+    // console.log(width, beforeClients);
 
     clients.style.setProperty("--before-width", `${width}px`);
   }
 };
 
-async function postNewFetch() {
-  let url =
-    "https://api.xn--b1agnepfhjfgc3i.fun/web/index.php?r=api-theme/post-list";
-  let params = {
-    name: "Роман",
-    tel: "+7 (999) 999-99-99",
-    text: "У меня есть вопрос",
-  };
-  try {
-    await fetch(
-      url,
-      {
-        method: "POST",
-        body: JSON.stringify(params),
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Bearer: "123132132165456465",
-        },
-      }
-    )
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  } catch (error) {
-    console.log(error);
-  }
-}
+// async function postNewFetch() {
+//   let url =
+//     "https://api.xn--b1agnepfhjfgc3i.fun/web/index.php?r=api-theme/post-list";
+//   let params = {
+//     name: "Роман",
+//     tel: "+7 (999) 999-99-99",
+//     text: "У меня есть вопрос",
+//   };
+//   try {
+//     await fetch(
+//       url,
+//       {
+//         method: "POST",
+//         body: JSON.stringify(params),
+//       },
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           Bearer: "123132132165456465",
+//         },
+//       }
+//     )
+//       .then((response) => {
+//         console.log(response);
+//       })
+//       .catch((error) => {
+//         console.log(error);
+//       });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 onMounted(async () => {
   widthClientBefoore();
-  await postNewFetch();
+  // await postNewFetch();
 });
 </script>
 

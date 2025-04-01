@@ -2,14 +2,18 @@
 const props = defineProps({
   color: {
     type: String,
-    default: "dark", // Optional: Set a default color
+    default: "dark",
+  },
+  link: {
+    type: String,
+    default: "/",
   },
 });
 </script>
 
 <template>
-  <button class="btn" :class="color">
-    Связаться с нами
+  <a class="btn" :class="color" :href="link">
+    <slot></slot>
     <svg
       width="14"
       height="10"
@@ -24,13 +28,13 @@ const props = defineProps({
         fill="white"
       />
     </svg>
-  </button>
+  </a>
 </template>
 
 <style lang="scss" scoped>
 .btn {
   font-family: 'Onest';
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 15px;
   gap: 10px;
