@@ -16,7 +16,7 @@ const info = ref([
         <span>{{ title }}</span>
         <p v-for="(str, index) in info" :key="index" v-html="str"></p>
       </div>
-      <CallBackBtn color="light" />
+      <CallBackBtn color="light" >Связаться с нами</CallBackBtn>
     </div>
   </section>
 </template>

@@ -13,7 +13,7 @@ import Sidebar from '~/components/Sidebar.vue';
       <div>
         <FrontPrinciples/>
         <Clients/>
-        <CallbackBlock/>
+        <CallbackBlock link="/"/>
       </div>
     </div>
   </div>
