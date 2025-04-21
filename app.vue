@@ -7,20 +7,20 @@ import FooterBlock from "~/components/FooterBlock.vue";
 const route = useRoute();
 const pathPage = computed(() => route.path);
 const isServicePage = ref(false);
-const btnColor = ref('orange')
+const btnColor = ref("orange");
 
 watch(pathPage, (newPath) => {
   isServicePage.value = newPath === "/services";
-  if(newPath === "/" || newPath === "/principles"){
-    btnColor.value = 'orange';
-  } else if(newPath === "/projects"){
-    btnColor.value = 'slime';
-  }else if(newPath === "/contacts"){
-    btnColor.value = 'pink';
-  }else if(newPath === "/services"){
-    btnColor.value = 'red';
-  }else{
-    btnColor.value = 'slime';
+  if (newPath === "/" || newPath === "/principles") {
+    btnColor.value = "orange";
+  } else if (newPath === "/projects") {
+    btnColor.value = "slime";
+  } else if (newPath === "/contacts") {
+    btnColor.value = "pink";
+  } else if (newPath === "/services") {
+    btnColor.value = "red";
+  } else {
+    btnColor.value = "slime";
   }
 });
 </script>
@@ -35,7 +35,7 @@ watch(pathPage, (newPath) => {
     />
   </Head>
   <HeaderBlock :btnColor="btnColor" />
-  <!-- <div class="block__header"></div>
+  <div class="block__header"></div>
   <div class="container-big">
     <div class="section__main">
       <div class="container vertical-container">
@@ -48,7 +48,7 @@ watch(pathPage, (newPath) => {
       <NuxtPage :btnColor="btnColor" class="section__content" />
     </div>
   </div>
-  <FooterBlock /> -->
+  <!--  <FooterBlock /> -->
 </template>
 <style>
 .block__header {
@@ -56,22 +56,25 @@ watch(pathPage, (newPath) => {
   flex-shrink: 0;
   display: block;
   width: 100%;
+
+  @media (max-width: 991.98px) {
+    display: none;
+  }
 }
 
 .container-big {
   position: relative;
+
+  @media (max-width: 991.98px) {
+    position: static;
+  }
 }
 .section__main {
   width: 100%;
   display: flex;
   position: relative;
 }
-.sidebar {
-  position: sticky;
-  top: 264px;
-  left: 0;
-  z-index: 2;
-}
+
 .section__content {
   width: 100%;
 }
@@ -89,6 +92,10 @@ watch(pathPage, (newPath) => {
   width: 1px;
   background-color: #dbdbdba3;
   transform: translateX(-4px) translateY(-32px);
+
+  @media (max-width: 1400px) {
+    display: none;
+  }
 }
 
 .vertical-line-top {

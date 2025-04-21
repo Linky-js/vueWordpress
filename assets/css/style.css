@@ -5,19 +5,23 @@
   font-weight: 700;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Onest';
   src: url('../fonts/Onest-SemiBold.woff2') format('woff2'),
     url('../fonts/Onest-SemiBold.woff') format('woff');
   font-weight: 600;
   font-style: normal;
-}@font-face {
+}
+
+@font-face {
   font-family: 'Onest';
   src: url('../fonts/Onest-Medium.woff2') format('woff2'),
     url('../fonts/Onest-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Onest';
   src: url('../fonts/Onest-Regular.woff2') format('woff2'),
@@ -52,6 +56,10 @@ body {
   background-size: 100% 559px;
   background-repeat: no-repeat;
   background-position: top center;
+
+  @media (max-width: 575.98px) {
+    background-size: 100% 400px;
+  }
 }
 
 body::-webkit-scrollbar {
@@ -123,7 +131,6 @@ textarea {
   max-width: 1376px;
   width: 100%;
   margin: 0 auto;
-  position: relative;
   padding: 0 20px;
 }
 
@@ -132,4 +139,8 @@ textarea {
   max-width: 1210px;
   margin: 0 auto;
   padding: 0 20px;
+
+  @media (max-width: 991.98px) {
+    padding: 0;
+  }
 }

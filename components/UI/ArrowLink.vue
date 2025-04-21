@@ -41,6 +41,12 @@ defineProps({
   transition: all .3s ease-in-out;
   cursor: pointer;
 
+    @media (max-width: 767.98px) {
+      width: 45px;
+      height: 45px;
+    }
+
+
   &.orange{
     border: none;
     background-color: #FFB05A;
