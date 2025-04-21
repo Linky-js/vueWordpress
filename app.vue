@@ -48,7 +48,7 @@ watch(pathPage, (newPath) => {
       <NuxtPage :btnColor="btnColor" class="section__content" />
     </div>
   </div>
-  <!--  <FooterBlock /> -->
+  <FooterBlock />
 </template>
 <style>
 .block__header {

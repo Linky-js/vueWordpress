@@ -143,11 +143,30 @@ const link = ref({
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 56px 30px;
+
+    @media (max-width: 991.98px) {
+      gap: 25px;
+    }
+
+    @media (max-width: 767.98px) {
+      gap: 15px;
+    }
+
+    @media (max-width: 575.98px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
   }
 
   &__item {
-    &:nth-child(even){
+    &:nth-child(even) {
       transform: translateY(112px);
+      @media (max-width: 991.98px) {
+        transform: translateY(56px);
+      }
+      @media (max-width: 575.98px) {
+        transform: translateY(0);
+      }
     }
   }
 
@@ -239,6 +258,17 @@ const link = ref({
     font-size: 14px;
     line-height: calc(18 / 14 * 100%);
     color: #333333;
+    @media (max-width: 991.98px) {
+      margin-top: 100px;
+    }
+    @media (max-width: 767.98px) {
+      margin-top: 60px;
+    }
+
+    @media (max-width: 575.98px) {
+      margin-top: 20px;
+    }
+
     .arrow-link {
       rotate: 0deg;
     }

@@ -48,6 +48,11 @@ const props = defineProps({
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 
+  @media (max-width: 575.98px) {
+    height: 36px;
+    padding: 15px;
+  }
+
   &:hover {
     background-color: #3a3562;
   }
@@ -63,12 +68,12 @@ const props = defineProps({
       transition: all 0.3s ease-in-out;
     }
 
-    &:hover{
+    &:hover {
       scale: 1.05;
     }
   }
   &.blue {
-    background-color: #447CE7;
+    background-color: #447ce7;
     border: none;
     padding: 22px;
     color: #ffffff;
@@ -78,12 +83,12 @@ const props = defineProps({
       transition: all 0.3s ease-in-out;
     }
 
-    &:hover{
+    &:hover {
       scale: 1.05;
     }
   }
   &.slime {
-    background-color: #84F0D3;
+    background-color: #84f0d3;
     border: none;
     padding: 22px;
     color: #191631;
@@ -93,12 +98,12 @@ const props = defineProps({
       transition: all 0.3s ease-in-out;
     }
 
-    &:hover{
+    &:hover {
       scale: 1.05;
     }
   }
   &.pink {
-    background-color: #FF89E0;
+    background-color: #ff89e0;
     border: none;
     padding: 22px;
     color: #191631;
@@ -108,12 +113,12 @@ const props = defineProps({
       transition: all 0.3s ease-in-out;
     }
 
-    &:hover{
+    &:hover {
       scale: 1.05;
     }
   }
   &.red {
-    background-color: #E86363;
+    background-color: #e86363;
     border: none;
     padding: 22px;
     color: #ffffff;
@@ -123,7 +128,7 @@ const props = defineProps({
       transition: all 0.3s ease-in-out;
     }
 
-    &:hover{
+    &:hover {
       scale: 1.05;
     }
   }

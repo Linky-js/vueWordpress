@@ -2,15 +2,14 @@
 import { defineProps } from "vue";
 import CallBackBtn from "./UI/CallBackBtn.vue";
 
-
 const props = defineProps({
-  btnColor:{
+  btnColor: {
     type: String,
-    default: 'orange'
-  }
-})
+    default: "orange",
+  },
+});
 
-const title = ref('Мы рады работать с ')
+const title = ref("Мы рады работать с ");
 const info = ref([
   "компаниями и людьми,<br>",
   "которые вдохновлены своими идеями<br>",
@@ -25,7 +24,7 @@ const info = ref([
         <span>{{ title }}</span>
         <p v-for="(str, index) in info" :key="index" v-html="str"></p>
       </div>
-      <CallBackBtn :color="btnColor" >Связаться с нами</CallBackBtn>
+      <CallBackBtn :color="btnColor">Связаться с нами</CallBackBtn>
     </div>
   </section>
 </template>
@@ -33,7 +32,10 @@ const info = ref([
 <style lang="scss" scoped>
 .callback {
   padding: 100px 0;
-    .container{
+  @media (max-width: 991.98px) {
+    padding: 40px 0;
+  }
+  .container {
     margin-left: 0;
   }
 
@@ -44,6 +46,23 @@ const info = ref([
     letter-spacing: -0.05em;
     margin-bottom: 62px;
 
+    @media (max-width: 1230px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 575.98px) {
+      display: inline-block;
+      br {
+        display: none;
+      }
+    }
+
     p {
       font-weight: 700;
       font-size: 38px;
@@ -51,20 +70,52 @@ const info = ref([
       text-transform: uppercase;
       color: #333333;
 
+      @media (max-width: 1230px) {
+        font-size: 32px;
+      }
+      @media (max-width: 991.98px) {
+        font-size: 28px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 24px;
+      }
+      @media (max-width: 575.98px) {
+        br {
+          display: none;
+        }
+      }
 
       &:nth-child(2) {
         display: inline-block;
       }
       &:nth-child(3) {
         margin-left: 180px;
+        @media (max-width: 991.98px) {
+          margin-left: 100px;
+        }
+        @media (max-width: 767.98px) {
+          margin-left: 40px;
+        }
+        @media (max-width: 575.98px) {
+          margin-left: 0;
+        }
       }
     }
     span {
       font-weight: 400;
       font-size: 38px;
       color: #a1a1a1;
+
+      @media (max-width: 1230px) {
+        font-size: 32px;
+      }
+      @media (max-width: 991.98px) {
+        font-size: 28px;
+      }
+      @media (max-width: 767.98px) {
+        font-size: 24px;
+      }
     }
   }
-
 }
 </style>

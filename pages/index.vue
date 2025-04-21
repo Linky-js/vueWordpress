@@ -33,10 +33,10 @@ async function getImageUrl(id) {
   <div>
     <Pergament />
      <Services />
-    <!--<Expertise />
+    <Expertise />
     <Projects />
     <Clients />
-    <CallbackBlock btnColor="blue" /> -->
+    <CallbackBlock btnColor="blue" />
   </div>
 </template>
 <style scoped>

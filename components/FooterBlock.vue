@@ -127,10 +127,18 @@ const copy = ref("© 2025 ООО «Пергамент»");
 
 <style lang="scss" scoped>
 .footer {
-  border-top: 1px solid #DBDBDB;
+  border-top: 1px solid #dbdbdb;
+
+  .container {
+    padding: 0 15px;
+  }
 
   &__top {
     padding: 50px 0 42px;
+
+    @media (max-width: 767.98px) {
+      padding: 30px 0;
+    }
   }
 
   &__top-inner {
@@ -139,6 +147,12 @@ const copy = ref("© 2025 ООО «Пергамент»");
     align-items: start;
     gap: 15px;
     padding-left: 35px;
+    @media (max-width: 991.98px) {
+      padding-left: 0;
+    }
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+    }
   }
 
   &__right {
@@ -146,11 +160,30 @@ const copy = ref("© 2025 ООО «Пергамент»");
     width: 100%;
     display: flex;
     gap: 180px;
+
+    @media (max-width: 1230px) {
+      max-width: 590px;
+    }
+    @media (max-width: 991.98px) {
+      gap: 80px;
+      max-width: 450px;
+    }
+    @media (max-width: 767.98px) {
+      max-width: none;
+      justify-content: space-between;
+    }
+    @media (max-width: 479.98px) {
+      gap: 40px;
+    }
   }
 
   &__menu-list {
     display: grid;
     gap: 24px;
+
+    @media (max-width: 479.98px) {
+      gap: 15px;
+    }
   }
 
   &__menu-link {
@@ -170,6 +203,9 @@ const copy = ref("© 2025 ООО «Пергамент»");
     color: #333333;
     max-width: 290px;
     margin-bottom: 23px;
+    @media (max-width: 479.98px) {
+      margin-bottom: 15px;  
+    }
   }
 
   &__phone {
@@ -190,6 +226,10 @@ const copy = ref("© 2025 ООО «Пергамент»");
 
   &__socials {
     margin-top: 36px;
+
+    @media (max-width: 479.98px) {
+      margin-top: 20px;
+    }
   }
 
   &__socials-title {
@@ -229,6 +269,13 @@ const copy = ref("© 2025 ООО «Пергамент»");
     align-items: center;
     gap: 15px;
     padding-left: 35px;
+
+    @media (max-width: 991.98px) {
+      padding-left: 0;
+    }
+    @media (max-width: 767.98px) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__copy {
@@ -244,6 +291,19 @@ const copy = ref("© 2025 ООО «Пергамент»");
     width: 100%;
     display: flex;
     gap: 97px;
+
+    @media (max-width: 1230px) {
+      max-width: 590px;
+    }
+    @media (max-width: 991.98px) {
+      gap: 80px;
+      max-width: 450px;
+    }
+    @media (max-width: 479.98px) {
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 
   &__link {
