@@ -3,6 +3,7 @@ import { ref } from "vue";
 import Breadcrumbs from "~/components/UI/Breadcrumbs.vue";
 import map from "~/assets/img/map.png";
 import CallBackBtn from "./UI/CallBackBtn.vue";
+import Map from "./UI/Map.vue";
 
 const breadcrumbs = ref([
   {
@@ -40,7 +41,8 @@ const socials = ref([
       <Breadcrumbs :breadcrumbs="breadcrumbs" />
       <h1 class="front-contacts__title">{{ title }}</h1>
       <p class="front-contacts__subtitle" v-html="subtitle"></p>
-      <img class="front-contacts__map" :src="map" alt="" />
+      <!-- <img class="front-contacts__map" :src="map" alt="" /> -->
+       <Map/>
       <div class="front-contacts__items">
         <div class="front-contacts__item">
           <h4 class="front-contacts__item-title">офис</h4>
@@ -84,7 +86,7 @@ const socials = ref([
       </div>
       <div class="front-contacts__bottom">
         <p class="front-contacts__bottom-text">присоединиться к команде</p>
-        <CallBackBtn class="front-contacts__bottom-btn" color="light"
+        <CallBackBtn class="front-contacts__bottom-btn" color="pink"
           >Отправить резюме</CallBackBtn
         >
       </div>
@@ -94,8 +96,12 @@ const socials = ref([
 
 <style lang="scss" scoped>
 .front-contacts {
-  margin-top: -600px;
+  margin-top: -440px;
   margin-bottom: 100px;
+
+  .container {
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;
@@ -110,6 +116,15 @@ const socials = ref([
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 72px;
+  }
+
+  &__subtitle {
+    font-family: "Onest";
+    font-weight: 600;
+    font-size: 18px;
+    line-height: calc(23 / 18 * 100%);
+    color: #ffffff;
+    margin-bottom: 26px;
   }
 
   &__map {
@@ -140,7 +155,7 @@ const socials = ref([
     margin-bottom: 10px;
   }
 
-  &__item-bottom{
+  &__item-bottom {
     display: grid;
     gap: 10px;
   }
@@ -149,15 +164,13 @@ const socials = ref([
     font-family: "Onest";
     font-weight: 600;
     font-size: 22px;
-    line-height: calc(28/22*100%);
+    line-height: calc(28 / 22 * 100%);
     color: #333333;
   }
 
-  &__item-soc{
+  &__item-soc {
     text-decoration: underline;
     text-underline-offset: 3px;
   }
-
 }
-
 </style>

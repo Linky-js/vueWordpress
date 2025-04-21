@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch } from "vue";
 import Pergament from "~/components/Pergament.vue";
-import Sidebar from "~/components/Sidebar.vue";
 import Expertise from "~/components/Expertise.vue";
 import Projects from "~/components/Projects.vue";
 import Clients from "~/components/Clients.vue";
@@ -31,34 +30,15 @@ async function getImageUrl(id) {
 }
 </script>
 <template>
-  <div class="container-big">
-    <div class="section__main">
-      <Sidebar class="sidebar" />
-
-      <div>
-        <Pergament />
-        <Services />
-        <Expertise />
-        <Projects />
-        <Clients />
-        <CallbackBlock />
-      </div>
-    </div>
+  <div>
+    <Pergament />
+    <Services />
+    <Expertise />
+    <Projects />
+    <Clients />
+    <CallbackBlock btnColor="blue" />
   </div>
 </template>
 <style scoped>
-.container-big {
-  position: relative;
-}
-.section__main {
-  width: 100%;
-  display: flex;
-  position: relative;
-}
-.sidebar {
-  position: sticky;
-  top: 264px;
-  left: 0;
-  z-index: 2;
-}
+
 </style>

@@ -1,5 +1,14 @@
 <script setup>
+import { defineProps } from "vue";
 import CallBackBtn from "./UI/CallBackBtn.vue";
+
+
+const props = defineProps({
+  btnColor:{
+    type: String,
+    default: 'orange'
+  }
+})
 
 const title = ref('Мы рады работать с ')
 const info = ref([
@@ -16,7 +25,7 @@ const info = ref([
         <span>{{ title }}</span>
         <p v-for="(str, index) in info" :key="index" v-html="str"></p>
       </div>
-      <CallBackBtn color="light" >Связаться с нами</CallBackBtn>
+      <CallBackBtn :color="btnColor" >Связаться с нами</CallBackBtn>
     </div>
   </section>
 </template>
@@ -24,6 +33,9 @@ const info = ref([
 <style lang="scss" scoped>
 .callback {
   padding: 100px 0;
+    .container{
+    margin-left: 0;
+  }
 
   &__title {
     font-family: "Onest";

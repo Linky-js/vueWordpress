@@ -94,7 +94,11 @@ const numbers = ref([
 
 <style lang="scss" scoped>
 .front-principles {
-  margin-top: -600px;
+   margin-top: -440px;
+
+     .container{
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;

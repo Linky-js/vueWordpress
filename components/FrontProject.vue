@@ -85,7 +85,10 @@ const tabActive = ref(0);
 
 <style lang="scss" scoped>
 .front-project {
-  margin-top: -550px;
+ margin-top: -440px;
+  .container{
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;

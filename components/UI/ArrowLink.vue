@@ -2,18 +2,14 @@
 defineProps({
   color: {
     type: String,
+    default: '',
   },
-  borderColor: {
-    type: String,
-    default: "#E8E8E8",
-  }
 });
 </script>
 
 <template>
   <div
-    class="arrow-link"
-    :style="{borderColor: borderColor}"
+    class="arrow-link" :class="color"
   >
     <svg
       width="16"
@@ -26,7 +22,7 @@ defineProps({
         fill-rule="evenodd"
         clip-rule="evenodd"
         d="M12.793 8L9.64603 11.146L10.354 11.853L14.707 7.5L10.354 3.146L9.64603 3.854L12.793 7H1.50003V8H12.793Z"
-        :fill="color"
+        fill="#000"
       />
     </svg>
   </div>
@@ -44,5 +40,14 @@ defineProps({
   border: 3px solid #e8e8e8;
   transition: all .3s ease-in-out;
   cursor: pointer;
+
+  &.orange{
+    border: none;
+    background-color: #FFB05A;
+
+    svg path{
+      fill: #2C2F8D;
+    }
+  }
 }
 </style>

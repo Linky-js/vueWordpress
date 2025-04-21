@@ -85,7 +85,10 @@ const items = ref([
 
 <style lang="scss" scoped>
 .front-single {
-  margin-top: -550px;
+ margin-top: -440px;
+  .container{
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;

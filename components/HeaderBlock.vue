@@ -1,5 +1,13 @@
 <script setup>
 import logo from "~/assets/img/logo.svg";
+import { defineProps } from "vue";
+
+const props = defineProps({
+  btnColor:{
+    type: String,
+    default: 'orange'
+  }
+})
 
 import CallBackBtn from "./UI/CallBackBtn.vue";
 const navLinks = ref([
@@ -46,7 +54,7 @@ const navLinks = ref([
             </li>
           </ul>
         </nav>
-        <CallBackBtn link="/">Связаться с нами</CallBackBtn>
+        <CallBackBtn :color="btnColor" link="/">Связаться с нами</CallBackBtn>
       </div>
     </div>
   </header>

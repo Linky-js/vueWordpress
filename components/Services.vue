@@ -69,7 +69,7 @@ const link = ref({
             >
               <NuxtLink class="services__item-link" :to="link.link">
                 <span class="services__item-text">{{ link.title }}</span>
-                <ArrowLink color="#2C2F8D" />
+                <ArrowLink color="orange" />
               </NuxtLink>
             </li>
           </ul>
@@ -86,7 +86,9 @@ const link = ref({
 <style lang="scss" scoped>
 .services {
   padding-top: 100px;
-
+  .container{
+    margin-left: 0;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;

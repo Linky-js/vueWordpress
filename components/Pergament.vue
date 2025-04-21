@@ -25,7 +25,9 @@ const suptitle = ref("Бюро креативных решений");
 <style lang="scss" scoped>
 .pergament {
   margin-top: -350px;
-
+  .container{
+    margin-left: 0;
+  }
   &__top {
     display: flex;
     justify-content: space-between;

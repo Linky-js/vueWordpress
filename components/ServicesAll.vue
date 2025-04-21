@@ -123,7 +123,9 @@ const services = ref([
 <style lang="scss" scoped>
 .services-all {
   padding-top: 220px;
-
+  .container{
+    margin-left: 0;
+  }
   &__inner {
     display: grid;
     gap: 100px;

@@ -2,7 +2,6 @@
 import CallbackBlock from "~/components/CallBackBlock.vue";
 import FrontServices from "~/components/FrontServices.vue";
 import ServicesAll from "~/components/ServicesAll.vue";
-import Sidebar from "~/components/Sidebar.vue";
 
 // Функция для изменения фона
 const setBodyBackground = (size = "100% 559px") => {
@@ -18,16 +17,16 @@ onBeforeUnmount(() => {
 });
 </script>
 <template>
-  <div class="container-big">
-    <div class="section__main">
-      <Sidebar class="sidebar" />
-      <div>
-        <FrontServices />
-        <ServicesAll />
-        <CallbackBlock link="/" />
-      </div>
-    </div>
+  <div>
+    <FrontServices />
+    <ServicesAll />
+    <CallbackBlock btnColor="red" />
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.vertical-line {
+  transform: translateX(-4px) translateY(-242px);
+  height: 111%;
+}
+</style>

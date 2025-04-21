@@ -165,6 +165,9 @@ onMounted(async () => {
     width: var(--before-width, 100%);
     z-index: -1;
   }
+    .container{
+    margin-left: 0;
+  }
 
   &__title {
     font-family: "Onest";

@@ -127,7 +127,7 @@ const copy = ref("© 2025 ООО «Пергамент»");
 
 <style lang="scss" scoped>
 .footer {
-  border-top: 1px solid #dbdbdb;
+  border-top: 1px solid #DBDBDB;
 
   &__top {
     padding: 50px 0 42px;
@@ -138,6 +138,7 @@ const copy = ref("© 2025 ООО «Пергамент»");
     justify-content: space-between;
     align-items: start;
     gap: 15px;
+    padding-left: 35px;
   }
 
   &__right {
@@ -227,6 +228,7 @@ const copy = ref("© 2025 ООО «Пергамент»");
     justify-content: space-between;
     align-items: center;
     gap: 15px;
+    padding-left: 35px;
   }
 
   &__copy {

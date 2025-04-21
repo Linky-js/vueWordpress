@@ -64,14 +64,16 @@ const items = ref([
 <style lang="scss" scoped>
 .works {
   padding-top: 100px;
-  
+  .container {
+    margin-left: 0;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
     align-items: start;
     gap: 15px;
     padding-bottom: 100px;
-    border-bottom: 3px solid #E8E8E8;
+    border-bottom: 3px solid #e8e8e8;
   }
 
   &__left {
@@ -107,7 +109,7 @@ const items = ref([
     gap: 16px;
   }
 
-  &__point{
+  &__point {
     display: flex;
     align-items: center;
     gap: 10px;

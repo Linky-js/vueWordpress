@@ -37,7 +37,9 @@ const images = ref([
 <style lang="scss" scoped>
 .result-block {
   padding-top: 100px;
-
+  .container{
+    margin-left: 0;
+  }
   &__title {
     font-family: "Onest";
     font-weight: 700;

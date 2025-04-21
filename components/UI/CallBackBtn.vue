@@ -33,7 +33,7 @@ const props = defineProps({
 
 <style lang="scss" scoped>
 .btn {
-  font-family: 'Onest';
+  font-family: "Onest";
   display: inline-flex;
   align-items: center;
   padding: 15px;
@@ -45,25 +45,101 @@ const props = defineProps({
   border-radius: 100px;
   border: 3px solid #3a3562;
   background-color: transparent;
-  transition: all .3s ease;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: #3a3562;
   }
-  
+
+  &.orange {
+    background-color: #ffb05a;
+    border: none;
+    padding: 22px;
+    color: #191631;
+
+    svg path {
+      fill: #191631;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover{
+      scale: 1.05;
+    }
+  }
+  &.blue {
+    background-color: #447CE7;
+    border: none;
+    padding: 22px;
+    color: #ffffff;
+
+    svg path {
+      fill: #ffffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover{
+      scale: 1.05;
+    }
+  }
+  &.slime {
+    background-color: #84F0D3;
+    border: none;
+    padding: 22px;
+    color: #191631;
+
+    svg path {
+      fill: #191631;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover{
+      scale: 1.05;
+    }
+  }
+  &.pink {
+    background-color: #FF89E0;
+    border: none;
+    padding: 22px;
+    color: #191631;
+
+    svg path {
+      fill: #191631;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover{
+      scale: 1.05;
+    }
+  }
+  &.red {
+    background-color: #E86363;
+    border: none;
+    padding: 22px;
+    color: #ffffff;
+
+    svg path {
+      fill: #ffffff;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover{
+      scale: 1.05;
+    }
+  }
+
   &.light {
     border: 3px solid #e8e8e8;
     padding: 22px;
     color: #333333;
-    
-    svg path{
+
+    svg path {
       fill: #262626;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
     }
-    &:hover{
+    &:hover {
       color: #ffffff;
-      svg path{
+      svg path {
         fill: #ffffff;
       }
     }

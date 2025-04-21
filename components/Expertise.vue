@@ -50,6 +50,10 @@ onMounted(() => {
 .expertise {
   padding-top: 100px;
 
+    .container{
+    margin-left: 0;
+  }
+
   &__title {
     font-family: "Onest";
     font-style: normal;
