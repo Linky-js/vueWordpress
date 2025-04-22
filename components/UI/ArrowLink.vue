@@ -2,6 +2,7 @@
 defineProps({
   color: {
     type: String,
+    default: "#fff",
   },
   borderColor: {
     type: String,

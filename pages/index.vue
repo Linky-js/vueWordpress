@@ -33,7 +33,7 @@ async function getImageUrl(id) {
 <template>
   <div class="container-big">
     <div class="section__main">
-      <Sidebar class="sidebar" />
+      <Sidebar />
 
       <div>
         <Pergament />
@@ -55,10 +55,5 @@ async function getImageUrl(id) {
   display: flex;
   position: relative;
 }
-.sidebar {
-  position: sticky;
-  top: 264px;
-  left: 0;
-  z-index: 2;
-}
+
 </style>

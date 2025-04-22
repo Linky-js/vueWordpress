@@ -8,11 +8,15 @@ const props = defineProps({
     type: String,
     default: "/",
   },
+  target: {
+    type: String,
+    default: "",
+  }
 });
 </script>
 
 <template>
-  <a class="btn" :class="color" :href="link">
+  <NuxtLink class="btn" :class="color" :target="target" :to="link">
     <slot></slot>
     <svg
       width="14"
@@ -28,7 +32,7 @@ const props = defineProps({
         fill="white"
       />
     </svg>
-  </a>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>

@@ -31,24 +31,6 @@ const projects = ref([
     ],
   },
   {
-    id: 2,
-    title: "Интерактивная программа «Вслед за Владимиром»",
-    img: picture3,
-    link: "/",
-    tags: [
-      {
-        id: 1,
-        title: "выставки",
-        link: "/",
-      },
-      {
-        id: 2,
-        title: "музеи",
-        link: "/",
-      },
-    ],
-  },
-  {
     id: 3,
     title: "Разработка бренда для ЖК «Лесart»",
     img: picture2,
@@ -66,6 +48,25 @@ const projects = ref([
       },
     ],
   },
+  {
+    id: 2,
+    title: "Интерактивная программа «Вслед за Владимиром»",
+    img: picture3,
+    link: "/",
+    tags: [
+      {
+        id: 1,
+        title: "выставки",
+        link: "/",
+      },
+      {
+        id: 2,
+        title: "музеи",
+        link: "/",
+      },
+    ],
+  },
+  
   {
     id: 4,
     title: "Visual Identity for residential complex",
@@ -101,7 +102,7 @@ const link = ref({
     <div class="projects__items">
       <div
         class="projects__item"
-        v-for="(project, index) in projects"
+        v-for="(project) in projects"
         :key="project.id"
       >
         <NuxtLink class="projects__item-wrapper" :to="'/project/' + project.id">
@@ -110,9 +111,8 @@ const link = ref({
             :src="project.img"
             :alt="project.title"
           />
-          <ArrowLink
-            :color="(index + 1) % 2 === 1 ? '#ffffff' : '#333333'"
-            :borderColor="(index + 1) % 2 === 1 ? '#ffffff66' : '#00000033'"
+          <ArrowLink class="projects__item-arrow"
+            
           />
         </NuxtLink>
         <div class="projects__item-info">
@@ -144,17 +144,15 @@ const link = ref({
 .projects {
   &__items {
     display: flex;
-    flex-direction: column;
     gap: 56px 30px;
     flex-wrap: wrap;
-    height: 1116px;
   }
 
   &__item {
     max-width: 570px;
     width: 100%;
-    &:nth-child(3) {
-      margin-top: 112px;
+    &:nth-child(2n) {
+      transform: translateY(112px);
     }
   }
 
@@ -242,6 +240,7 @@ const link = ref({
     font-size: 14px;
     line-height: calc(18 / 14 * 100%);
     color: #333333;
+    margin-top: 168px;
     .arrow-link {
       rotate: 0deg;
     }
@@ -252,5 +251,10 @@ const link = ref({
       }
     }
   }
+  
+}
+.projects__item-arrow, .projects__item-arrow svg path{
+  mix-blend-mode: difference;
+  fill: #fff;
 }
 </style>
