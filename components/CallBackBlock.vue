@@ -1,6 +1,8 @@
 <script setup>
 import { defineProps } from "vue";
 import CallBackBtn from "./UI/CallBackBtn.vue";
+import Modal from "./UI/Modal.vue";
+
 
 const props = defineProps({
   btnColor: {
@@ -15,6 +17,10 @@ const info = ref([
   "которые вдохновлены своими идеями<br>",
   "и готовы создавать креативные решения",
 ]);
+const modalVisible = ref(false);
+function showModal() {
+  modalVisible.value = true;
+}
 </script>
 
 <template>
@@ -24,8 +30,13 @@ const info = ref([
         <span>{{ title }}</span>
         <p v-for="(str, index) in info" :key="index" v-html="str"></p>
       </div>
-      <CallBackBtn :color="btnColor">Связаться с нами</CallBackBtn>
+      <CallBackBtn @click.prevent="showModal" :color="btnColor">
+        Связаться с нами
+      </CallBackBtn>
     </div>
+    <Modal v-model:show="modalVisible">
+      <CallbackForm />
+    </Modal>
   </section>
 </template>
 

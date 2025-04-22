@@ -101,7 +101,7 @@ const link = ref({
     <div class="projects__items">
       <div
         class="projects__item"
-        v-for="(project, index) in projects"
+        v-for="(project) in projects"
         :key="project.id"
       >
         <NuxtLink class="projects__item-wrapper" :to="'/project/' + project.id">

@@ -2,6 +2,7 @@
 import logo from "~/assets/img/logo.svg";
 import { defineProps } from "vue";
 import CallBackBtn from "./UI/CallBackBtn.vue";
+import Modal from "./UI/Modal.vue";
 
 const props = defineProps({
   btnColor: {
@@ -35,6 +36,10 @@ const isActiveMenu = ref(false);
 const toggleMenu = () => {
   isActiveMenu.value = !isActiveMenu.value;
 };
+const modalVisible = ref(false);
+function showModal() {
+  modalVisible.value = true;
+}
 </script>
 
 <template>
@@ -56,7 +61,12 @@ const toggleMenu = () => {
             </li>
           </ul>
         </nav>
-        <CallBackBtn class="header__btn" :color="btnColor" link="/">
+        <CallBackBtn
+          class="header__btn"
+          :color="btnColor"
+          link="/"
+          @click.prevent="showModal"
+        >
           <span> Связаться с нами </span>
         </CallBackBtn>
         <button
@@ -70,6 +80,9 @@ const toggleMenu = () => {
         </button>
       </div>
     </div>
+    <Modal v-model:show="modalVisible">
+      <CallbackForm/>
+    </Modal>
   </header>
 </template>
 
@@ -92,7 +105,7 @@ const toggleMenu = () => {
       gap: 20px;
     }
     @media (max-width: 479.98px) {
-    gap: 10px;
+      gap: 10px;
     }
   }
 
@@ -246,4 +259,5 @@ const toggleMenu = () => {
     }
   }
 }
+
 </style>

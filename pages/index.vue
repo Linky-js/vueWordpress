@@ -13,7 +13,6 @@ const { data: page } = useFetch(
 watch(
   page,
   () => {
-    console.log(page.value);
     if (page.value?.acf?.kartinka) {
       getImageUrl(page.value.acf.kartinka);
     }
