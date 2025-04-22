@@ -26,12 +26,24 @@ const suptitle = ref("Бюро креативных решений");
 .pergament {
   margin-top: -350px;
 
+  @media (max-width: 991.98px) {
+    margin-top: 50px;
+  }
+  .container {
+    margin-left: 0;
+  }
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: end;
     gap: 15px;
     margin-bottom: 27px;
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
   }
 
   &__suptitle {
@@ -54,14 +66,41 @@ const suptitle = ref("Бюро креативных решений");
     color: #7b779d;
     display: grid;
     gap: 20px;
+    @media (max-width: 767.98px) {
+      max-width: none;
+      gap: 0;
+
+      br{display: none;}
+    }
   }
 
   &__title {
     position: relative;
+
+    @media (max-width: 991.98px) {
+      max-width: 420px;
+    }
+
+    @media (max-width: 767.98px) {
+      max-width: 350px;
+    }
+    @media (max-width: 575.98px) {
+      max-width: 300px;
+    }
   }
 
   &__picture {
     margin-top: -58px;
+
+    @media (max-width: 991.98px) {
+      max-height: 400px;
+      object-position: top;
+      width: 100%;
+    }
+
+    @media (max-width: 575.98px) {
+    margin-top: -30px;
+    }
   }
 }
 </style>

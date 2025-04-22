@@ -94,7 +94,14 @@ const numbers = ref([
 
 <style lang="scss" scoped>
 .front-principles {
-  margin-top: -600px;
+  margin-top: -440px;
+  @media (max-width: 991.98px) {
+    margin-top: 50px;
+  }
+
+  .container {
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;
@@ -109,6 +116,18 @@ const numbers = ref([
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 72px;
+
+    @media (max-width: 991.98px) {
+      font-size: 44px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 38px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 575.98px) {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
   }
 
   &__items {
@@ -116,6 +135,26 @@ const numbers = ref([
     grid-template-columns: repeat(3, 1fr);
     gap: 130px;
     margin-bottom: 75px;
+
+    @media (max-width: 1230px) {
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 30px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__item {
+    @media (max-width: 767.98px) {
+      &:last-child {
+        .front-principles__item-title {
+          color: #333333;
+        }
+      }
+    }
   }
 
   &__item-title {
@@ -125,6 +164,10 @@ const numbers = ref([
     line-height: calc(23 / 18 * 100%);
     color: #ffffff;
     margin-bottom: 20px;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__item-text {
@@ -138,18 +181,46 @@ const numbers = ref([
   &__img {
     height: 362px;
     margin-bottom: 100px;
+
+    @media (max-width: 991.98px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 767.98px) {
+      height: 320px;
+    }
   }
 
   &__elems {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 110px;
+
+    @media (max-width: 1230px) {
+      gap: 40px;
+    }
+
+    @media (max-width: 991.98px) {
+      gap: 12px;
+    }
+    @media (max-width: 767.98px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 12px;
+    }
   }
 
   &__elem {
     display: flex;
     gap: 15px;
     align-items: end;
+    @media (max-width: 991.98px) {
+      gap: 10px;
+    }
+    @media (max-width: 575.98px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
   }
 
   &__elem-num {
@@ -159,6 +230,18 @@ const numbers = ref([
     line-height: 0.7;
     letter-spacing: -0.05em;
     color: #ecbb86;
+
+    @media (max-width: 1230px) {
+      font-size: 72px;
+    }
+
+    @media (max-width: 991.98px) {
+      font-size: 64px;
+    }
+
+    @media (max-width: 575.98px) {
+      font-size: 40px;
+    }
   }
 
   &__elem-text {

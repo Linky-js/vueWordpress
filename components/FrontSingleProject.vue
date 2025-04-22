@@ -85,7 +85,14 @@ const items = ref([
 
 <style lang="scss" scoped>
 .front-single {
-  margin-top: -550px;
+  margin-top: -440px;
+
+  @media (max-width: 991.98px) {
+    margin-top: 50px;
+  }
+  .container {
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;
@@ -99,11 +106,30 @@ const items = ref([
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 56px;
+
+    @media (max-width: 991.98px) {
+      font-size: 44px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 38px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 575.98px) {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
   }
 
   &__picture {
     max-height: 405px;
     margin-bottom: 70px;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 575.98px) {
+    height: 250px;
+    }
   }
   &__inner {
     padding-bottom: 58px;
@@ -111,6 +137,12 @@ const items = ref([
     display: flex;
     justify-content: space-between;
     align-items: start;
+
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 40px;
+    }
   }
 
   &__inner-title {
@@ -126,6 +158,13 @@ const items = ref([
   &__right {
     max-width: 670px;
     width: 100%;
+
+    @media (max-width: 991.98px) {
+      max-width: 540px;
+    }
+    @media (max-width: 767.98px) {
+      max-width: none;
+    }
   }
 
   &__right-info {
@@ -147,6 +186,19 @@ const items = ref([
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 200px;
+
+    @media (max-width: 1230px) {
+      gap: 80px;
+    }
+    @media (max-width: 767.98px) {
+    margin-top: 40px;
+    gap: 20px;
+    }
+
+    @media (max-width: 575.98px) {
+    grid-template-columns: repeat(1, 1fr);
+
+    }
   }
 
   &__item-title {
@@ -164,6 +216,14 @@ const items = ref([
     font-size: 30px;
     line-height: calc(38 / 30 * 100%);
     color: #2c2f8d;
+
+    @media (max-width: 991.98px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 767.98px) {
+    font-size: 22px;
+    }
   }
 }
 </style>

@@ -31,7 +31,7 @@ onMounted(() => {
     if (span === spans[spans.length - 1]) {
       tl.to(span, { color: "#333", duration: 1, ease: "none" });
     } else {
-      tl.to(span, { color: "#333", duration: 1, ease: "none" })
+      tl.to(span, { color: "#333", duration: 1, ease: "none" });
     }
   });
 });
@@ -49,6 +49,12 @@ onMounted(() => {
 <style lang="scss" scoped>
 .expertise {
   padding-top: 100px;
+  @media (max-width: 991.98px) {
+    padding-top: 40px;
+  }
+  .container {
+    margin-left: 0;
+  }
 
   &__title {
     font-family: "Onest";
@@ -68,6 +74,18 @@ onMounted(() => {
     line-height: 120%;
     letter-spacing: -0.05em;
     color: #333333;
+  }
+  &__title,
+  &__subtitle {
+    @media (max-width: 1230px) {
+      font-size: 32px;
+    }
+    @media (max-width: 991.98px) {
+      font-size: 28px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 24px;
+    }
   }
 }
 </style>

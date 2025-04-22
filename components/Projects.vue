@@ -3,7 +3,6 @@ import { ref } from "vue";
 import ProjectItems from "~/components/ProjectItems.vue";
 
 const title = ref("Проекты");
-
 </script>
 
 <template>
@@ -20,7 +19,12 @@ const title = ref("Проекты");
 <style lang="scss" scoped>
 .projects {
   padding-top: 100px;
-
+  @media (max-width: 991.98px) {
+    padding-top: 40px;
+  }
+  .container {
+    margin-left: 0;
+  }
   &__title {
     font-family: "Onest";
     font-weight: 700;
@@ -30,6 +34,20 @@ const title = ref("Проекты");
     text-transform: uppercase;
     color: #333333;
     margin-bottom: 50px;
+
+    @media (max-width: 1230px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 575.98px) {
+      margin-bottom: 15px;
+    }
   }
 }
 </style>

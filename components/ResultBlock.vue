@@ -1,12 +1,10 @@
 <script setup>
-
-import { ref } from 'vue'
+import { ref } from "vue";
 import picture1 from "~/assets/img/woman.png";
 import picture2 from "~/assets/img/project-1.png";
 import picture3 from "~/assets/img/project-2.png";
 
-
-const title = ref('результат');
+const title = ref("результат");
 const images = ref([
   {
     id: 1,
@@ -20,15 +18,19 @@ const images = ref([
     id: 3,
     src: picture3,
   },
-])
+]);
 </script>
 <template>
   <section class="result-block">
     <div class="container">
-      <h2 class="result-block__title">{{title}}</h2>
+      <h2 class="result-block__title">{{ title }}</h2>
       <div class="result-block__images">
-        <div v-for="image in images" :key="image.id" class="result-block__img-wrapper">
-          <img class="result-block__img" :src="image.src" alt="">
+        <div
+          v-for="image in images"
+          :key="image.id"
+          class="result-block__img-wrapper"
+        >
+          <img class="result-block__img" :src="image.src" alt="" />
         </div>
       </div>
     </div>
@@ -37,7 +39,12 @@ const images = ref([
 <style lang="scss" scoped>
 .result-block {
   padding-top: 100px;
-
+  @media (max-width: 991.98px) {
+    padding-top: 40px;
+  }
+  .container {
+    margin-left: 0;
+  }
   &__title {
     font-family: "Onest";
     font-weight: 700;
@@ -46,20 +53,36 @@ const images = ref([
     letter-spacing: -0.05em;
     text-transform: uppercase;
     margin-bottom: 56px;
+
+    @media (max-width: 991.98px) {
+      font-size: 44px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 38px;
+      margin-bottom: 30px;
+    }
+    @media (max-width: 575.98px) {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
   }
 
-  &__images{
+  &__images {
     display: grid;
     gap: 20px;
+    @media (max-width: 575.98px) {
+      gap: 15px;
+    }
   }
 
-  &__img-wrapper{
+  &__img-wrapper {
     position: relative;
-    padding-bottom: calc(637/1170*100%);
+    padding-bottom: calc(637 / 1170 * 100%);
     overflow: hidden;
   }
 
-  &__img{
+  &__img {
     position: absolute;
     top: 0;
     left: 0;
@@ -67,7 +90,5 @@ const images = ref([
     height: 100%;
     object-fit: cover;
   }
-
-
 }
 </style>

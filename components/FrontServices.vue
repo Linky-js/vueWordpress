@@ -28,7 +28,14 @@ const title = ref("Услуги");
 
 <style lang="scss" scoped>
 .front-services {
-  margin-top: -600px;
+  margin-top: -440px;
+
+  @media (max-width: 991.98px) {
+    margin-top: 50px;
+  }
+  .container {
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;
@@ -42,6 +49,16 @@ const title = ref("Услуги");
     letter-spacing: -0.05em;
     text-transform: uppercase;
     color: #ffffff;
+
+    @media (max-width: 991.98px) {
+      font-size: 44px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 38px;
+    }
+    @media (max-width: 575.98px) {
+      font-size: 32px;
+    }
   }
 }
 </style>

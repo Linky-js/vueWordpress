@@ -69,13 +69,13 @@ const link = ref({
             >
               <NuxtLink class="services__item-link" :to="link.link">
                 <span class="services__item-text">{{ link.title }}</span>
-                <ArrowLink color="#2C2F8D" />
+                <ArrowLink color="orange" />
               </NuxtLink>
             </li>
           </ul>
           <NuxtLink class="services__link" :to="link.link">
             {{ link.title }}
-            <ArrowLink color="#262626"  />
+            <ArrowLink color="#262626" />
           </NuxtLink>
         </div>
       </div>
@@ -86,7 +86,12 @@ const link = ref({
 <style lang="scss" scoped>
 .services {
   padding-top: 100px;
-
+  @media (max-width: 991.98px) {
+    padding-top: 40px;
+  }
+  .container {
+    margin-left: 0;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -96,6 +101,17 @@ const link = ref({
   &__left {
     margin-top: 35px;
     margin-left: 80px;
+
+    @media (max-width: 1230px) {
+      margin-left: 40px;
+    }
+    @media (max-width: 991.98px) {
+      margin-left: 0;
+    }
+
+    @media (max-width: 767.98px) {
+      display: none;
+    }
   }
 
   &__left-block {
@@ -105,6 +121,9 @@ const link = ref({
     overflow: hidden;
     width: 306px;
     height: 306px;
+    @media (max-width: 1230px) {
+      scale: 0.8;
+    }
   }
 
   &__left-img {
@@ -128,10 +147,32 @@ const link = ref({
     text-transform: uppercase;
     color: #333333;
     margin-bottom: 50px;
+
+    @media (max-width: 1230px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 575.98px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__list {
     margin-bottom: 32px;
+
+    @media (max-width: 991.98px) {
+      margin-bottom: 25px;
+    }
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 20px;
+    }
   }
 
   &__item {
@@ -176,12 +217,12 @@ const link = ref({
     font-size: 14px;
     line-height: calc(18 / 14 * 100%);
     color: #333333;
-    .arrow-link{
+    .arrow-link {
       rotate: 90deg;
     }
 
-    &:hover{
-      .arrow-link{
+    &:hover {
+      .arrow-link {
         rotate: 0deg;
       }
     }

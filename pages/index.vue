@@ -1,7 +1,6 @@
 <script setup>
 import { ref, watch } from "vue";
 import Pergament from "~/components/Pergament.vue";
-import Sidebar from "~/components/Sidebar.vue";
 import Expertise from "~/components/Expertise.vue";
 import Projects from "~/components/Projects.vue";
 import Clients from "~/components/Clients.vue";
@@ -14,7 +13,6 @@ const { data: page } = useFetch(
 watch(
   page,
   () => {
-    console.log(page.value);
     if (page.value?.acf?.kartinka) {
       getImageUrl(page.value.acf.kartinka);
     }
@@ -31,29 +29,15 @@ async function getImageUrl(id) {
 }
 </script>
 <template>
-  <div class="container-big">
-    <div class="section__main">
-      <Sidebar />
-
-      <div>
-        <Pergament />
-        <Services />
-        <Expertise />
-        <Projects />
-        <Clients />
-        <CallbackBlock />
-      </div>
-    </div>
+  <div>
+    <Pergament />
+     <Services />
+    <Expertise />
+    <Projects />
+    <Clients />
+    <CallbackBlock btnColor="blue" />
   </div>
 </template>
 <style scoped>
-.container-big {
-  position: relative;
-}
-.section__main {
-  width: 100%;
-  display: flex;
-  position: relative;
-}
 
 </style>
