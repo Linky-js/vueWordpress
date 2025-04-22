@@ -31,24 +31,6 @@ const projects = ref([
     ],
   },
   {
-    id: 2,
-    title: "Интерактивная программа «Вслед за Владимиром»",
-    img: picture3,
-    link: "/",
-    tags: [
-      {
-        id: 1,
-        title: "выставки",
-        link: "/",
-      },
-      {
-        id: 2,
-        title: "музеи",
-        link: "/",
-      },
-    ],
-  },
-  {
     id: 3,
     title: "Разработка бренда для ЖК «Лесart»",
     img: picture2,
@@ -62,6 +44,24 @@ const projects = ref([
       {
         id: 2,
         title: "дизайн",
+        link: "/",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Интерактивная программа «Вслед за Владимиром»",
+    img: picture3,
+    link: "/",
+    tags: [
+      {
+        id: 1,
+        title: "выставки",
+        link: "/",
+      },
+      {
+        id: 2,
+        title: "музеи",
         link: "/",
       },
     ],
@@ -101,7 +101,7 @@ const link = ref({
     <div class="projects__items">
       <div
         class="projects__item"
-        v-for="(project, index) in projects"
+        v-for="(project) in projects"
         :key="project.id"
       >
         <NuxtLink class="projects__item-wrapper" :to="'/project/' + project.id">
@@ -110,10 +110,7 @@ const link = ref({
             :src="project.img"
             :alt="project.title"
           />
-          <ArrowLink
-            :color="(index + 1) % 2 === 1 ? '#ffffff' : '#333333'"
-            :borderColor="(index + 1) % 2 === 1 ? '#ffffff66' : '#00000033'"
-          />
+          <ArrowLink color="orange" />
         </NuxtLink>
         <div class="projects__item-info">
           <h4 class="projects__item-title">
@@ -143,18 +140,33 @@ const link = ref({
 <style lang="scss" scoped>
 .projects {
   &__items {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 56px 30px;
-    flex-wrap: wrap;
-    height: 1116px;
+
+    @media (max-width: 991.98px) {
+      gap: 25px;
+    }
+
+    @media (max-width: 767.98px) {
+      gap: 15px;
+    }
+
+    @media (max-width: 575.98px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+    }
   }
 
   &__item {
-    max-width: 570px;
-    width: 100%;
-    &:nth-child(3) {
-      margin-top: 112px;
+    &:nth-child(even) {
+      transform: translateY(112px);
+      @media (max-width: 991.98px) {
+        transform: translateY(56px);
+      }
+      @media (max-width: 575.98px) {
+        transform: translateY(0);
+      }
     }
   }
 
@@ -171,7 +183,9 @@ const link = ref({
       }
 
       .arrow-link {
+        transition: all 0.3s ease-in-out;
         rotate: -45deg;
+        opacity: 1;
       }
     }
 
@@ -179,6 +193,7 @@ const link = ref({
       position: absolute;
       top: 0;
       right: 0;
+      opacity: 0;
     }
   }
 
@@ -236,12 +251,24 @@ const link = ref({
     align-items: center;
     gap: 16px;
     max-width: 194px;
+    margin-top: 168px;
     margin-left: auto;
     font-family: "Onest";
     font-weight: 500;
     font-size: 14px;
     line-height: calc(18 / 14 * 100%);
     color: #333333;
+    @media (max-width: 991.98px) {
+      margin-top: 100px;
+    }
+    @media (max-width: 767.98px) {
+      margin-top: 60px;
+    }
+
+    @media (max-width: 575.98px) {
+      margin-top: 20px;
+    }
+
     .arrow-link {
       rotate: 0deg;
     }

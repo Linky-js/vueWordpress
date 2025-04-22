@@ -71,13 +71,11 @@ const tabActive = ref(0);
             >
               {{ tab.name }}
 
-              <div
-                class="front-project__tab-line"
-              ></div>
+              <div class="front-project__tab-line"></div>
             </div>
           </a>
         </div>
-        <ProjectItems/>
+        <ProjectItems />
       </div>
     </div>
   </section>
@@ -85,7 +83,13 @@ const tabActive = ref(0);
 
 <style lang="scss" scoped>
 .front-project {
-  margin-top: -550px;
+  margin-top: -440px;
+  @media (max-width: 991.98px) {
+    margin-top: 50px;
+  }
+  .container {
+    margin-left: 0;
+  }
 
   &__breadcrumbs {
     margin-bottom: 5px;
@@ -100,12 +104,33 @@ const tabActive = ref(0);
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 53px;
+
+    @media (max-width: 991.98px) {
+      font-size: 44px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 38px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 575.98px) {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
   }
 
   &__tabs {
     display: flex;
     gap: 24px;
     margin-bottom: 68px;
+
+    @media (max-width: 767.98px) {
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 575.98px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__tab-btn {
@@ -118,7 +143,7 @@ const tabActive = ref(0);
 
     &.active {
       color: #ffffff;
-      .front-project__tab-line{
+      .front-project__tab-line {
         width: 100%;
       }
     }
@@ -130,7 +155,7 @@ const tabActive = ref(0);
     height: 3px;
     background-color: #645e8f;
     width: 0%;
-    transition: all .3s linear;
+    transition: all 0.3s linear;
   }
 }
 </style>

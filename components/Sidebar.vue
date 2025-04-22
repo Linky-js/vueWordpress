@@ -4,7 +4,7 @@ import { ref, computed } from "vue";
 
 const route = useRoute();
 
-const pathPage = computed(() => route.path); 
+const pathPage = computed(() => route.path);
 
 const navLinks = ref([
   { id: 1, title: "Главная", link: "/" },
@@ -37,11 +37,16 @@ const navLinks = ref([
 .aside {
   display: flex;
   align-items: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
   max-width: 62px;
   height: max-content;
+  position: sticky;
+  top: 264px;
+  left: 0;
+  z-index: 2;
+
+  @media (max-width: 991.98px) {
+    display: none;
+  }
 }
 
 .left-menu {

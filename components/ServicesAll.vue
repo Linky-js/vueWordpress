@@ -123,10 +123,32 @@ const services = ref([
 <style lang="scss" scoped>
 .services-all {
   padding-top: 220px;
-
+  @media (max-width: 1230px) {
+    padding-top: 150px;
+  }
+  @media (max-width: 991.98px) {
+    padding-top: 90px;
+  }
+  .container {
+    margin-left: 0;
+  }
   &__inner {
     display: grid;
     gap: 100px;
+
+    @media (max-width: 991.98px) {
+      gap: 40px;
+    }
+  }
+
+  &__block {
+    @media (max-width: 991.98px) {
+      &:first-child {
+        .services-all__title {
+          color: #ffffff;
+        }
+      }
+    }
   }
 
   &__title {
@@ -143,6 +165,13 @@ const services = ref([
   &__items {
     display: grid;
     gap: 40px;
+
+    @media (max-width: 991.98px) {
+      gap: 30px;
+    }
+    @media (max-width: 767.98px) {
+      gap: 20px;
+    }
   }
 
   &__item {
@@ -152,6 +181,11 @@ const services = ref([
     justify-content: space-between;
     align-items: start;
     gap: 15px;
+
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+      padding-bottom: 15px;
+    }
 
     &:hover {
       .arrow-link {
@@ -173,6 +207,11 @@ const services = ref([
     font-size: 22px;
     line-height: calc(28 / 22 * 100%);
     color: #333333;
+    @media (max-width: 767.98px) {
+      br {
+        display: none !important;
+      }
+    }
   }
 
   &__item-right {
@@ -182,6 +221,16 @@ const services = ref([
     justify-content: space-between;
     align-items: center;
     gap: 15px;
+
+    @media (max-width: 1230px) {
+      max-width: 540px;
+    }
+    @media (max-width: 991.98px) {
+      max-width: 450px;
+    }
+    @media (max-width: 767.98px) {
+      max-width: 670px;
+    }
   }
 
   &__item-text {

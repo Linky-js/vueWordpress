@@ -85,42 +85,8 @@ const widthClientBefoore = () => {
   }
 };
 
-// async function postNewFetch() {
-//   let url =
-//     "https://api.xn--b1agnepfhjfgc3i.fun/web/index.php?r=api-theme/post-list";
-//   let params = {
-//     name: "Роман",
-//     tel: "+7 (999) 999-99-99",
-//     text: "У меня есть вопрос",
-//   };
-//   try {
-//     await fetch(
-//       url,
-//       {
-//         method: "POST",
-//         body: JSON.stringify(params),
-//       },
-//       {
-//         headers: {
-//           "Content-Type": "application/json",
-//           Bearer: "123132132165456465",
-//         },
-//       }
-//     )
-//       .then((response) => {
-//         console.log(response);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
 onMounted(async () => {
   widthClientBefoore();
-  // await postNewFetch();
 });
 </script>
 
@@ -151,6 +117,11 @@ onMounted(async () => {
   position: relative;
   z-index: 1;
 
+  @media (max-width: 991.98px) {
+    padding: 40px 0;
+    margin-top: 40px;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -164,6 +135,9 @@ onMounted(async () => {
     height: 100%;
     width: var(--before-width, 100%);
     z-index: -1;
+  }
+  .container {
+    margin-left: 0;
   }
 
   &__title {
@@ -181,11 +155,19 @@ onMounted(async () => {
     justify-content: space-between;
     align-items: start;
     gap: 15px;
+
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+    }
   }
 
   &__right {
     max-width: 670px;
     width: 100%;
+
+    @media (max-width: 991.98px) {
+      max-width: none;
+    }
   }
 
   &__subtitle {
@@ -195,6 +177,20 @@ onMounted(async () => {
     line-height: calc(20 / 16 * 100%);
     color: #7b769d;
     margin-bottom: 50px;
+
+    @media (max-width: 1230px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 20px;
+    }
+    @media (max-width: 575.98px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__items {
@@ -203,6 +199,14 @@ onMounted(async () => {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+
+    @media (max-width: 991.98px) {
+      margin: 0 auto;
+    }
+
+    @media (max-width: 767.98px) {
+      justify-content: space-around;
+    }
   }
 
   &__item {
