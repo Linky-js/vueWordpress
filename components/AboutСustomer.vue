@@ -29,7 +29,7 @@ const onSwiper = (swiper) => {
 
 const prevSlide = () => {
   if (swiperInstance.value) {
-    swiperInstance.value.slidePrev(); 
+    swiperInstance.value.slidePrev();
   }
 };
 
@@ -119,6 +119,15 @@ onMounted(async () => {
   position: relative;
   z-index: 1;
 
+  @media (max-width: 991.98px) {
+    padding-top: 40px;
+    margin-top: 40px;
+  }
+
+    @media (max-width: 479.98px) {
+    margin-bottom: 80px;
+    }
+
   &::before {
     content: "";
     position: absolute;
@@ -134,7 +143,7 @@ onMounted(async () => {
     z-index: -1;
   }
 
-  .container{
+  .container {
     margin-left: 0;
   }
   &__title {
@@ -153,11 +162,18 @@ onMounted(async () => {
     align-items: start;
     gap: 15px;
     position: relative;
+
+    @media (max-width: 991.98px) {
+      flex-direction: column;
+    }
   }
 
   &__right {
     max-width: 670px;
     width: 100%;
+    @media (max-width: 991.98px) {
+      max-width: none;
+    }
   }
 
   &__right-top {
@@ -165,6 +181,11 @@ onMounted(async () => {
     align-items: center;
     gap: 37px;
     margin-bottom: 54px;
+
+    @media (max-width: 575.98px) {
+      gap: 20px;
+      margin-bottom: 30px;
+    }
   }
 
   &__right-descr {
@@ -180,6 +201,11 @@ onMounted(async () => {
     display: grid;
     gap: 20px;
     margin-bottom: 39px;
+
+    @media (max-width: 575.98px) {
+      margin-bottom: 30px;
+      gap: 15px;
+    }
   }
 
   &__right-text {
@@ -189,11 +215,19 @@ onMounted(async () => {
     line-height: calc(22 / 16 * 100%);
     color: #e8e7ee;
     max-width: 583px;
+
+    @media (max-width: 991.98px) {
+      max-width: none;
+    }
   }
 
   &__right-btn {
     margin-bottom: 39px;
     height: 48px;
+
+    @media (max-width: 575.98px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__right-bottom {
@@ -201,21 +235,45 @@ onMounted(async () => {
     gap: 28px;
     align-items: end;
     position: absolute;
+
+    @media (max-width: 991.98px) {
+      right: 0;
+    }
+    @media (max-width: 767.98px) {
+      right: auto;
+      left: 0;
+      width: 100%;
+      gap: 20px;
+    }
   }
 
   &__swiper {
     max-width: 480px;
+
+    @media (max-width: 479.98px) {
+      max-width: none;
+    }
   }
 
   .swiper-navigation {
     position: relative;
     display: flex;
     gap: 10px;
+    @media (max-width: 479.98px) {
+      position: absolute;
+      right: 15px;
+      bottom: 15px;
+    }
 
     .swiper-button-prev,
     .swiper-button-next {
       position: static;
       padding: 18px;
+
+      @media (max-width: 767.98px) {
+        padding: 10px;
+        background-color: #fff;
+      }
 
       &::after {
         display: none;

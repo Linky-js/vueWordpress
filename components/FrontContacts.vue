@@ -42,7 +42,7 @@ const socials = ref([
       <h1 class="front-contacts__title">{{ title }}</h1>
       <p class="front-contacts__subtitle" v-html="subtitle"></p>
       <!-- <img class="front-contacts__map" :src="map" alt="" /> -->
-       <Map/>
+      <Map class="front-contacts__map" />
       <div class="front-contacts__items">
         <div class="front-contacts__item">
           <h4 class="front-contacts__item-title">офис</h4>
@@ -99,6 +99,10 @@ const socials = ref([
   margin-top: -440px;
   margin-bottom: 100px;
 
+  @media (max-width: 991.98px) {
+    margin: 50px 0;
+  }
+
   .container {
     margin-left: 0;
   }
@@ -116,6 +120,18 @@ const socials = ref([
     text-transform: uppercase;
     color: #ffffff;
     margin-bottom: 72px;
+
+    @media (max-width: 991.98px) {
+      font-size: 44px;
+    }
+    @media (max-width: 767.98px) {
+      font-size: 38px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 575.98px) {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
   }
 
   &__subtitle {
@@ -125,11 +141,20 @@ const socials = ref([
     line-height: calc(23 / 18 * 100%);
     color: #ffffff;
     margin-bottom: 26px;
+
+    @media (max-width: 767.98px) {
+    margin-bottom: 15px;
+    }
   }
 
   &__map {
     height: 389px;
     margin-bottom: 56px;
+
+    @media (max-width: 767.98px) {
+      height: 320px !important;
+      margin-bottom: 30px;
+    }
   }
 
   &__items {
@@ -138,11 +163,25 @@ const socials = ref([
     gap: 50px 72px;
     max-width: 924px;
     margin-bottom: 50px;
+
+    @media (max-width: 767.98px) {
+    gap: 30px;
+    margin-bottom: 30px;
+    }
+
+    @media (max-width: 575.98px) {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    }
   }
 
   &__item {
     padding-bottom: 15px;
     border-bottom: 1px solid #000000;
+
+    @media (max-width: 575.98px) {
+    padding-bottom: 10px;
+    }
   }
 
   &__bottom-text,
@@ -166,6 +205,10 @@ const socials = ref([
     font-size: 22px;
     line-height: calc(28 / 22 * 100%);
     color: #333333;
+
+    @media (max-width: 767.98px) {
+    font-size: 18px;
+    }
   }
 
   &__item-soc {

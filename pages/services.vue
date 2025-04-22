@@ -25,8 +25,4 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="scss" scoped>
-.vertical-line {
-  transform: translateX(-4px) translateY(-242px);
-  height: 111%;
-}
 </style>

@@ -33,6 +33,7 @@ defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 59px;
   width: 59px;
   height: 59px;
   padding: 10px;
@@ -42,6 +43,7 @@ defineProps({
   cursor: pointer;
 
     @media (max-width: 767.98px) {
+      min-width: 45px;
       width: 45px;
       height: 45px;
     }

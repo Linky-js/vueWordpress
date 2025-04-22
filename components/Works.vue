@@ -64,6 +64,9 @@ const items = ref([
 <style lang="scss" scoped>
 .works {
   padding-top: 100px;
+  @media (max-width: 991.98px) {
+    padding-top: 40px;
+  }
   .container {
     margin-left: 0;
   }
@@ -74,10 +77,21 @@ const items = ref([
     gap: 15px;
     padding-bottom: 100px;
     border-bottom: 3px solid #e8e8e8;
+
+    @media (max-width: 991.98px) {
+      padding-bottom: 40px;
+    }
+
+    @media (max-width: 767.98px) {
+    flex-direction: column;
+    }
   }
 
   &__left {
     max-width: 321px;
+    @media (max-width: 767.98px) {
+    max-width: none;
+    }
   }
 
   &__title {
