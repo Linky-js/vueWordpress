@@ -1,24 +1,34 @@
 <script setup>
 import { ref } from "vue";
-import picture1 from "~/assets/img/woman.png";
-import picture2 from "~/assets/img/project-1.png";
-import picture3 from "~/assets/img/project-2.png";
 
+const props = defineProps({
+  result: {
+    type: Object,
+    default: {},
+  },
+});
+
+const images = ref([]);
+watch(
+  () => props.result.images,
+  async (newVal) => {
+    if (!Array.isArray(newVal) || newVal.length === 0) return;
+
+    try {
+      const results = await Promise.all(
+        newVal.map((id) =>
+          $fetch(`https://pergament.dmgug.ru/wp-json/wp/v2/media/${id.foto}`)
+        )
+      );
+      images.value = results.map((img) => img.source_url);
+    } catch (error) {
+      console.error("Ошибка при загрузке изображений:", error);
+    }
+  },
+  { immediate: true }
+);
 const title = ref("результат");
-const images = ref([
-  {
-    id: 1,
-    src: picture1,
-  },
-  {
-    id: 2,
-    src: picture2,
-  },
-  {
-    id: 3,
-    src: picture3,
-  },
-]);
+
 </script>
 <template>
   <section class="result-block">
@@ -30,7 +40,7 @@ const images = ref([
           :key="image.id"
           class="result-block__img-wrapper"
         >
-          <img class="result-block__img" :src="image.src" alt="" />
+          <img class="result-block__img" :src="image" alt="" />
         </div>
       </div>
     </div>

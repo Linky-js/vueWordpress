@@ -1,20 +1,29 @@
 <script setup>
-import { ref } from "vue";
+import { defineProps, onMounted } from "vue";
 import title from "~/assets/img/title.svg";
 import picture from "~/assets/img/woman.png";
 
-const summary = ref(
-  `<p>Создаем современные <strong>музейные проекты <br>и графический дизайн</strong></p><p>с 2011 для государственных организаций и бизнеса</p>`
-);
-const suptitle = ref("Бюро креативных решений");
+const props = defineProps({
+  pergamentObject: {
+    type: Object,
+    default: {
+      summary: `<p>1111111111Создаем современные <strong>музейные проекты <br>и графический дизайн</strong></p><p>с 2011 для государственных организаций и бизнеса</p>`,
+      suptitle: "Бюро креативных решений",
+    },
+  }
+})
+onMounted(() => {
+  console.log(props.pergamentObject);
+});
+
 </script>
 
 <template>
   <section class="pergament">
     <div class="container">
       <div class="pergament__top">
-        <h2 class="pergament__suptitle">{{ suptitle }}</h2>
-        <div class="pergament__summary" v-html="summary"></div>
+        <h2 class="pergament__suptitle">{{ props.pergamentObject.suptitle }}</h2>
+        <div class="pergament__summary" v-html="props.pergamentObject.summary"></div>
       </div>
       <img class="pergament__title" :src="title" alt="Пергамент" />
       <img class="pergament__picture" :src="picture" alt="" />

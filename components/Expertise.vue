@@ -1,14 +1,18 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineProps } from "vue";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const title = ref("наша экспертиза");
-const subtitle = ref(
-  "В РАЗРАБОТКЕ КОНЦЕПЦИИ, ДИЗАЙНА И ТЕХНИЧЕСКИХ РЕШЕНИЙ ПОМОГАЕТ СОЗДАВАТЬ СОВРЕМЕННЫЕ ПРОЕКТЫ \nИ ОБОГАЩАТЬ КУЛЬТУРНЫЙ КОД СТРАНЫ"
-);
+const props = defineProps({
+  expertiseObject: {
+    type: Object,
+    default: {
+      
+    },
+  },
+});
 
-onMounted(() => {
+onMounted( async () => {
   gsap.registerPlugin(ScrollTrigger);
   let subtitle = document.querySelector(".expertise__subtitle");
   const words = subtitle.innerText.split(" ");
@@ -40,8 +44,8 @@ onMounted(() => {
 <template>
   <section class="expertise">
     <div class="container">
-      <h2 class="expertise__title">{{ title }}</h2>
-      <p class="expertise__subtitle">{{ subtitle }}</p>
+      <h2 class="expertise__title">{{ props.expertiseObject.title }}</h2>
+      <p class="expertise__subtitle">{{ props.expertiseObject.subtitle }}</p>
     </div>
   </section>
 </template>

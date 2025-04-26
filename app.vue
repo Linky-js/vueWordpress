@@ -44,7 +44,7 @@ watch(pathPage, (newPath) => {
           :class="{ 'vertical-line-top': isServicePage }"
         />
       </div>
-      <Sidebar class="sidebar" />
+      <Sidebar />
       <NuxtPage :btnColor="btnColor" class="section__content" />
     </div>
   </div>
@@ -88,10 +88,10 @@ watch(pathPage, (newPath) => {
 }
 
 .vertical-line {
-  height: 102%;
+  height: calc(100% + 29px);
   width: 1px;
   background-color: #dbdbdba3;
-  transform: translateX(-4px) translateY(-32px);
+  transform: translateX(13px) translateY(-29px);
 
   @media (max-width: 1400px) {
     display: none;

@@ -1,50 +1,20 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
 import ArrowLink from "./UI/ArrowLink.vue";
 import picture from "~/assets/img/services-img.png";
 
+const props = defineProps({
+  servicesLinks: {
+    type: Array,
+    default: [],
+  },
+});
+
 const title = ref("услуги");
-const servicesLinks = ref([
-  {
-    id: 1,
-    title: "Выставки под ключ",
-    link: "/",
-  },
-  {
-    id: 2,
-    title: "Музейные экспозиции",
-    link: "/",
-  },
-  {
-    id: 3,
-    title: "Дизайн-проект выставки",
-    link: "/",
-  },
-  {
-    id: 4,
-    title: "Фирменный стиль для музеев",
-    link: "/",
-  },
-  {
-    id: 5,
-    title: "Образовательные квесты",
-    link: "/",
-  },
-  {
-    id: 6,
-    title: "Создание арт-объектов",
-    link: "/",
-  },
-  {
-    id: 7,
-    title: "Мультимедийный контент",
-    link: "/",
-  },
-]);
 
 const link = ref({
   title: "показать больше",
-  link: "/",
+  link: "/services",
 });
 </script>
 
@@ -64,11 +34,11 @@ const link = ref({
           <ul class="services__list">
             <li
               class="services__item"
-              v-for="link in servicesLinks"
+              v-for="link in props.servicesLinks.servicesLinks"
               :key="link.id"
             >
-              <NuxtLink class="services__item-link" :to="link.link">
-                <span class="services__item-text">{{ link.title }}</span>
+              <NuxtLink class="services__item-link" :to="link.ssylka_na_straniczu">
+                <span class="services__item-text">{{ link.nazvanie }}</span>
                 <ArrowLink color="orange" />
               </NuxtLink>
             </li>

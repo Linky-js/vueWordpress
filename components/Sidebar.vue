@@ -43,6 +43,7 @@ const navLinks = ref([
   top: 264px;
   left: 0;
   z-index: 2;
+  margin-right: 17px;
 
   @media (max-width: 991.98px) {
     display: none;

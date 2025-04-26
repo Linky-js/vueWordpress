@@ -2,24 +2,52 @@
 import { ref } from "vue";
 import CallBackBtn from "./UI/CallBackBtn.vue";
 import ArrowLink from "./UI/ArrowLink.vue";
-import picture from "~/assets/img/rus-pic.png";
-import swiperPic from "~/assets/img/swiper-pic.png";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-
 import "swiper/css";
 import "swiper/css/navigation";
 
-const title = ref("о заказчике");
-const topDescr = ref(
-  'Исторический парк «Россия – Моя история» – "живой учебник" по истории России и Санкт-Петербурга.'
-);
-const infoText = ref([
-  "Уникальный мультимедийный комплекс представляет всю историю страны с древнейших времен до наших дней при помощи более 900 единиц мультимедийного и интерактивного оборудования.",
-  "Знакомство с великими династиями, правившими страной более тысячи лет, легендарными победами, феноменальными прорывами в области культуры и искусства, науки и техники, подлинными героями и трагическими переломами в судьбе нашего народа — позволят посетителям испытать чувство личной причастности к неразрывной и общей истории, в том числе и через почти забытое сегодня чувство благодарности.",
-]);
+const props = defineProps({
+  aboutCustomer: {
+    type: Object,
+    default: {
+      
+    }
+  }
+})
+const swiperPicList = ref([]);
+const logo = ref("");
 
-const swiperPicList = ref([swiperPic, swiperPic]);
+watch(
+  () => props.aboutCustomer.logo,
+  async (newVal) => {
+    if (!newVal) return;
+    const res = await $fetch(`https://pergament.dmgug.ru/wp-json/wp/v2/media/${newVal}`);
+    logo.value = res.source_url;
+  },
+  { immediate: true }
+);
+watch(
+  () => props.aboutCustomer.images,
+  async (newVal) => {
+    if (!Array.isArray(newVal) || newVal.length === 0) return;
+
+    try {
+      const results = await Promise.all(
+        newVal.map((id) =>
+          $fetch(`https://pergament.dmgug.ru/wp-json/wp/v2/media/${id.foto}`)
+        )
+      );
+      swiperPicList.value = results.map((img) => img.source_url);
+    } catch (error) {
+      console.error("Ошибка при загрузке изображений:", error);
+    }
+  },
+  { immediate: true }
+);
+const title = ref("о заказчике");
+
+
 const modules = [Navigation];
 const swiperInstance = ref(null);
 
@@ -59,19 +87,18 @@ onMounted(async () => {
         <h2 class="about-customer__title">{{ title }}</h2>
         <div class="about-customer__right">
           <div class="about-customer__right-top">
-            <img class="about-customer__right-img" :src="picture" alt="" />
-            <p class="about-customer__right-descr">{{ topDescr }}</p>
+            <img class="about-customer__right-img" :src="logo" alt="" />
+            <p class="about-customer__right-descr">{{ props.aboutCustomer.topDescr }}</p>
           </div>
           <div class="about-customer__right-info">
             <p
               class="about-customer__right-text"
-              v-for="(text, index) in infoText"
-              :key="index"
+              v-html="props.aboutCustomer.infoText"
             >
-              {{ text }}
+             
             </p>
           </div>
-          <CallBackBtn class="about-customer__right-btn" link="/"
+          <CallBackBtn class="about-customer__right-btn" :link="props.aboutCustomer.ssylka_na_nego"
             >Перейти на сайт заказчика</CallBackBtn
           >
           <div class="about-customer__right-bottom">
