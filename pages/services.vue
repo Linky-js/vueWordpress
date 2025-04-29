@@ -15,11 +15,15 @@ onMounted(() => {
 onBeforeUnmount(() => {
   setBodyBackground();
 });
+
+const { data: services } = await useAsyncData('services', () =>
+  $fetch(`https://pergament.dmgug.ru/wp-json/wp/v2/pages/137?_embed&acf_fields=true`)
+);
 </script>
 <template>
   <div>
     <FrontServices />
-    <ServicesAll />
+    <ServicesAll :services="services"/>
     <CallbackBlock btnColor="red" />
   </div>
 </template>

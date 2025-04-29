@@ -33,6 +33,21 @@ const initialPage = ref(parseInt(route.query.page) || 1);
 const isInitialLoad = ref(true);
 const perPage = 10;
 
+
+const breadcrumbs = ref([
+  {
+    id: 1,
+    name: "Главная",
+    url: "/",
+  },
+  {
+    id: 2,
+    name: "Проекты",
+    url: "/projects",
+  },
+]);
+const title = ref("Проекты");
+
 const fetchTotalProjects = async () => {
   const url = `https://pergament.dmgug.ru/wp-json/wp/v2/project?per_page=1&_embed&acf_fields=true${
     props.categorySlug ? `&project-category_slug=${props.categorySlug}` : ""
@@ -115,13 +130,15 @@ onMounted(async () => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
+
+
 </script>
 <template>
   <div>
     <section class="front-project">
       <div class="container">
         <Breadcrumbs :breadcrumbs="breadcrumbs" />
-        <h1>{{ title }}</h1>
+        <h1 class="front-project__title">{{ title }}</h1>
         <div class="front-project__tabs">
             <NuxtLink
             :to="'/projects'"
@@ -138,6 +155,7 @@ onUnmounted(() => {
             :class="{ active: tab.slug === categorySlug }"
           >
             {{ tab.name }}
+            <div class="front-project__tab-line"></div>
           </NuxtLink>
         </div>
         <ProjectItems :items="items" />
