@@ -2,19 +2,26 @@
 import { ref } from "vue";
 import ProjectItems from "~/components/ProjectItems.vue";
 
+const props = defineProps({
+  projects: {
+    type: Array,
+    required: true,
+  },
+});
+
 const title = ref("Проекты");
 </script>
 
-<template>
-  <section class="projects">
-    <div class="container">
-      <h2 class="projects__title">
-        {{ title }}
-      </h2>
-      <ProjectItems />
-    </div>
-  </section>
-</template>
+  <template>
+    <section class="projects">
+      <div class="container">
+        <h2 class="projects__title">
+          {{ title }}
+        </h2>
+        <ProjectItems :items="projects" />
+      </div>
+    </section>
+  </template>
 
 <style lang="scss" scoped>
 .projects {

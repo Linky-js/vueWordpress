@@ -3,6 +3,18 @@ import { ref } from "vue";
 import Breadcrumbs from "~/components/UI/Breadcrumbs.vue";
 import picture from "~/assets/img/single-1.png";
 
+const props = defineProps({
+  frontSingleProject: {
+    type: Object,
+    default: {
+      
+    }
+  }
+})
+
+onMounted(() => {
+  console.log('prop',props.frontSingleProject);
+})
 const breadcrumbs = ref([
   {
     id: 1,
@@ -21,29 +33,9 @@ const breadcrumbs = ref([
   },
 ]);
 
-const title = ref("Квест «Затерянный в Петербурге»");
 const innerTitle = ref("О проекте");
-const text = ref([
-  "«Затерянный в Петербурге» – это увлекательная игра, во время которой участники узнают о городе, масштабных событиях и выдающихся личностях.",
-  "Это удивительное путешествие, в основе которого лежат реальные исторические события",
-]);
-const items = ref([
-  {
-    id: 1,
-    title: "вид работ",
-    text: "выставка-квест под ключ",
-  },
-  {
-    id: 2,
-    title: "работали над проектом",
-    text: "март 2022 - декабрь 2023",
-  },
-  {
-    id: 3,
-    title: "город",
-    text: "Санкт-Петербург",
-  },
-]);
+const imageUrl = ref(null);
+
 </script>
 
 <template>
@@ -53,29 +45,27 @@ const items = ref([
         class="front-single__breadcrumbs"
         :breadcrumbs="breadcrumbs"
       />
-      <h1 class="front-single__title">{{ title }}</h1>
-      <img class="front-single__picture" :src="picture" alt="" />
+      <h1 class="front-single__title">{{ props.frontSingleProject.title }}</h1>
+      <img class="front-single__picture" :src="props.frontSingleProject.image" alt="" />
       <div class="front-single__inner">
         <h2 class="front-single__inner-title">{{ innerTitle }}</h2>
         <div class="front-single__right">
           <div class="front-single__right-info">
             <p
               class="front-single__right-text"
-              v-for="secntence in text"
-              :key="secntence"
             >
-              {{ secntence }}
+              {{ props.frontSingleProject.text }}
             </p>
           </div>
         </div>
       </div>
       <div class="front-single__items">
-        <div class="front-single__item" v-for="item in items" :key="item.id">
+        <div class="front-single__item" v-for="item in props.frontSingleProject.items" :key="item.id">
           <h4 class="front-single__item-title">
-            {{ item.title }}
+            {{ item.lejbl }}
           </h4>
           <p class="front-single__item-text">
-            {{ item.text }}
+            {{ item.opisanie }}
           </p>
         </div>
       </div>

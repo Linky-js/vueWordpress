@@ -3,6 +3,13 @@ import { ref } from "vue";
 import Breadcrumbs from "~/components/UI/Breadcrumbs.vue";
 import picture from "~/assets/img/woman-princip.png";
 
+const props = defineProps({
+  principles: {
+    type: Object,
+    required: true
+  }
+})
+
 const breadcrumbs = ref([
   {
     id: 1,
@@ -11,51 +18,20 @@ const breadcrumbs = ref([
   },
   {
     id: 2,
-    name: "Проекты",
+    name: "Принципы",
     url: "/projects",
   },
 ]);
 const title = ref("Принципы");
-const items = ref([
-  {
-    id: 1,
-    title: "Системный подход",
-    text: "Рассматриваем каждый проект как систему. Это позволяет нам исключить хаотичные действия и прийти а нужному результату",
-  },
-  {
-    id: 2,
-    title: "Системный подход",
-    text: "Рассматриваем каждый проект как систему. Это позволяет нам исключить хаотичные действия и прийти а нужному результату",
-  },
-  {
-    id: 3,
-    title: "Системный подход",
-    text: "Рассматриваем каждый проект как систему. Это позволяет нам исключить хаотичные действия и прийти а нужному результату",
-  },
-]);
+const items = ref([...props.principles.acf.princzipy]);
 
-const numbers = ref([
-  {
-    id: 1,
-    title: 120,
-    text: "выполненных<br> проектов",
-  },
-  {
-    id: 2,
-    title: 28,
-    text: "сотрудников<br> в команде",
-  },
-  {
-    id: 3,
-    title: 5,
-    text: "городов, где<br> мы находимся",
-  },
-  {
-    id: 4,
-    title: 8,
-    text: "лет<br> в маркетинге",
-  },
-]);
+const numbers = ref([...props.principles.acf.v_czifrah]);
+
+onMounted(() => {
+  console.log('principles',props.principles);
+  console.log('items',items.value);
+  
+})
 </script>
 
 <template>
@@ -70,22 +46,22 @@ const numbers = ref([
           :key="item.id"
         >
           <h4 class="front-principles__item-title">
-            {{ item.title }}
+            {{ item.zagolovok }}
           </h4>
           <p class="front-principles__item-text">
-            {{ item.text }}
+            {{ item.opisanie }}
           </p>
         </div>
       </div>
-      <img class="front-principles__img" :src="picture" alt="" />
+      <img class="front-principles__img" :src="props.principles._embedded?.['wp:featuredmedia']?.[0]?.source_url || null" alt="" />
       <div class="front-principles__elems">
         <div
           class="front-principles__elem"
           v-for="number in numbers"
           :key="number.id"
         >
-          <p class="front-principles__elem-num">{{ number.title }}</p>
-          <p class="front-principles__elem-text" v-html="number.text"></p>
+          <p class="front-principles__elem-num">{{ number.czifra }}</p>
+          <p class="front-principles__elem-text" v-html="number.tekst"></p>
         </div>
       </div>
     </div>

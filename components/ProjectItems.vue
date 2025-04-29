@@ -1,136 +1,73 @@
 <script setup>
-import { ref } from "vue";
+import { computed } from "vue";
 import ArrowLink from "./UI/ArrowLink.vue";
-import picture1 from "~/assets/img/project-1.png";
-import picture2 from "~/assets/img/project-2.png";
-import picture3 from "~/assets/img/project-3.png";
-import picture4 from "~/assets/img/project-4.png";
+import { useRoute } from "vue-router";
 
-const projects = ref([
-  {
-    id: 1,
-    title: "Международный фестиваль театров",
-    img: picture1,
-    link: "/",
-    tags: [
-      {
-        id: 1,
-        title: "выставки",
-        link: "/",
-      },
-      {
-        id: 2,
-        title: "музеи",
-        link: "/",
-      },
-      {
-        id: 3,
-        title: "дизайн",
-        link: "/",
-      },
-    ],
+const route = useRoute();
+
+const props = defineProps({
+  items: {
+    type: Array,
+    required: true,
   },
-  {
-    id: 3,
-    title: "Разработка бренда для ЖК «Лесart»",
-    img: picture2,
-    link: "/",
-    tags: [
-      {
-        id: 1,
-        title: "бренд",
-        link: "/",
-      },
-      {
-        id: 2,
-        title: "дизайн",
-        link: "/",
-      },
-    ],
+  categorySlug: {
+    type: String,
+    default: "",
   },
-  {
-    id: 2,
-    title: "Интерактивная программа «Вслед за Владимиром»",
-    img: picture3,
-    link: "/",
-    tags: [
-      {
-        id: 1,
-        title: "выставки",
-        link: "/",
-      },
-      {
-        id: 2,
-        title: "музеи",
-        link: "/",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "Visual Identity for residential complex",
-    img: picture4,
-    link: "/",
-    tags: [
-      {
-        id: 1,
-        title: "айдентика",
-        link: "/",
-      },
-      {
-        id: 2,
-        title: "бренд",
-        link: "/",
-      },
-      {
-        id: 3,
-        title: "дизайн",
-        link: "/",
-      },
-    ],
-  },
-]);
-const link = ref({
-  title: "больше проектов",
-  link: "/",
 });
+
+const projects = computed(() => {
+  return props.items.map((project) => {
+    let imageUrl = project._embedded?.['wp:featuredmedia']?.[0]?.source_url || null;
+    let categories = (project._embedded?.['wp:term']?.[0] || []).map((cat) => ({
+      id: cat.id,
+      name: cat.name,
+      slug: cat.slug,
+    }));
+
+    return {
+      ...project,
+      imageUrl,
+      categories,
+    };
+  });
+});
+
+const link = {
+  title: "больше проектов",
+  link: "/projects",
+};
 </script>
 
 <template>
   <div>
     <div class="projects__items">
-      <div
-        class="projects__item"
-        v-for="(project) in projects"
-        :key="project.id"
-      >
-        <NuxtLink class="projects__item-wrapper" :to="'/project/' + project.id">
+      <div class="projects__item" v-for="project in projects" :key="project.id">
+        <NuxtLink
+          class="projects__item-wrapper"
+          :to="'/project/' + project.slug"
+        >
           <img
             class="projects__item-img"
-            :src="project.img"
-            :alt="project.title"
+            :src="project.imageUrl"
+            :alt="project.title.rendered"
           />
           <ArrowLink color="orange" />
         </NuxtLink>
         <div class="projects__item-info">
-          <h4 class="projects__item-title">
-            {{ project.title }}
-          </h4>
+          <h4 class="projects__item-title">{{ project.title.rendered }}</h4>
           <ul class="projects__item-list">
-            <li
-              class="projects__item-point"
-              v-for="tag in project.tags"
-              :key="tag.id"
-            >
-              <NuxtLink class="projects__item-link" :to="tag.link">{{
-                tag.title
-              }}</NuxtLink>
+            <li v-for="tag in project.categories" :key="tag.id" class="projects__item-point">
+              <NuxtLink :to="'/project-category/' + tag.slug" class="projects__item-link">
+                {{ tag.name }}
+              </NuxtLink>
             </li>
           </ul>
         </div>
       </div>
     </div>
-    <NuxtLink class="projects__link" :to="link.link">
+
+    <NuxtLink v-if="route.path !== '/projects'" class="projects__link" :to="link.link">
       {{ link.title }}
       <ArrowLink color="#262626" />
     </NuxtLink>
@@ -279,5 +216,10 @@ const link = ref({
       }
     }
   }
+}
+.projects__item-arrow,
+.projects__item-arrow svg path {
+  mix-blend-mode: difference;
+  fill: #fff;
 }
 </style>

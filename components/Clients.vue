@@ -1,92 +1,49 @@
 <script setup>
-import { ref, onMounted } from "vue";
-import picture1 from "~/assets/img/clients-1.png";
-import picture2 from "~/assets/img/clients-2.png";
-import picture3 from "~/assets/img/clients-3.png";
-import picture4 from "~/assets/img/clients-4.png";
-import picture5 from "~/assets/img/clients-5.png";
-import picture6 from "~/assets/img/clients-6.png";
-import picture7 from "~/assets/img/clients-7.png";
-import picture8 from "~/assets/img/clients-8.png";
-import picture9 from "~/assets/img/clients-9.png";
-import picture10 from "~/assets/img/clients-10.png";
-import picture11 from "~/assets/img/clients-11.png";
-import picture12 from "~/assets/img/clients-12.png";
-import picture13 from "~/assets/img/clients-13.png";
+import { ref, onMounted, computed } from "vue";
+
+const props = defineProps({
+  clientsArray: {
+    type: Array,
+    default: [],
+  },
+})
 
 const title = ref("Клиенты");
 const subtitle = ref(
   "С благодарностью к тем, <br>кто доверил нам свои проекты"
 );
-const items = ref([
-  {
-    id: 1,
-    src: picture1,
-  },
-  {
-    id: 2,
-    src: picture2,
-  },
-  {
-    id: 3,
-    src: picture3,
-  },
-  {
-    id: 4,
-    src: picture4,
-  },
-  {
-    id: 5,
-    src: picture5,
-  },
-  {
-    id: 6,
-    src: picture6,
-  },
-  {
-    id: 7,
-    src: picture7,
-  },
-  {
-    id: 8,
-    src: picture8,
-  },
-  {
-    id: 9,
-    src: picture9,
-  },
-  {
-    id: 10,
-    src: picture10,
-  },
-  {
-    id: 11,
-    src: picture11,
-  },
-  {
-    id: 12,
-    src: picture12,
-  },
-  {
-    id: 13,
-    src: picture13,
-  },
-]);
+
 
 const widthClientBefoore = () => {
   let width = window.innerWidth;
   let clients = document.querySelector(".clients");
 
   if (clients) {
+    
     let beforeClients = window.getComputedStyle(clients, "::before");
-    // console.log(width, beforeClients);
-
-    clients.style.setProperty("--before-width", `${width}px`);
+    
+    if (width < 1375) {
+      clients.style.setProperty("--before-left", `calc(50% - 0px)`);
+      clients.style.setProperty("--before-width", `calc(${width}px + 120px`);
+    } else {
+      clients.style.setProperty("--before-left", `calc(50%)`);
+      clients.style.setProperty("--before-width", `calc(${width}px + 120px`);
+    }
   }
 };
+ 
+const resizeWindowBlock = (computed)  => {
+  window.addEventListener("resize", () => {    
+    widthClientBefoore();
+  });
+}
+
 
 onMounted(async () => {
+  console.log(props.clientsArray);
+  
   widthClientBefoore();
+  resizeWindowBlock();
 });
 </script>
 
@@ -100,8 +57,8 @@ onMounted(async () => {
         <div class="clients__right">
           <p class="clients__subtitle" v-html="subtitle"></p>
           <div class="clients__items">
-            <div class="clients__item" v-for="item in items" :key="item.id">
-              <img class="clients__item-img" :src="item.src" :alt="item.id" />
+            <div class="clients__item" v-for="item in props.clientsArray" :key="item.id">
+              <img class="clients__item-img" :src="item" :alt="item.id" />
             </div>
           </div>
         </div>
@@ -130,7 +87,7 @@ onMounted(async () => {
     background-size: cover;
     background-position: center;
     top: 0;
-    left: 50%;
+    left: var(--before-left, 50%);
     transform: translateX(-50%);
     height: 100%;
     width: var(--before-width, 100%);

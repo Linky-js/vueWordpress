@@ -1,35 +1,15 @@
 <script setup>
 import { ref } from "vue";
 
-const textLeft = ref(
-  "Создать пространство, где в игровой форме дети и подростки смогли бы узнать историю Петербурга."
-);
-const items = ref([
-  {
-    id: 1,
-    title: "Концепция проекта",
-  },
-  {
-    id: 2,
-    title: "Сценарий квеста",
-  },
-  {
-    id: 3,
-    title: "Дизайн-проект",
-  },
-  {
-    id: 4,
-    title: "Разработка интерактивов",
-  },
-  {
-    id: 5,
-    title: "Мультимедийный контент",
-  },
-  {
-    id: 6,
-    title: "Застройка квеста 200м2",
-  },
-]);
+
+const props = defineProps({
+  works: {
+    type: Object,
+    default: {
+      
+    }
+  }
+})
 </script>
 
 <template>
@@ -38,12 +18,12 @@ const items = ref([
       <div class="works__inner">
         <div class="works__left">
           <h3 class="works__title">задача</h3>
-          <p class="works__text">{{ textLeft }}</p>
+          <p class="works__text">{{ props.works.textLeft }}</p>
         </div>
         <div class="works__right">
           <h3 class="works__title">Что делали</h3>
           <ul class="works__list">
-            <li class="works__point" v-for="item in items" :key="item.id">
+            <li class="works__point" v-for="item in props.works.items" :key="item.id">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   fill-rule="evenodd"
@@ -52,7 +32,7 @@ const items = ref([
                   fill="#DDABAB"
                 />
               </svg>
-              <p class="works__text">{{ item.title }}</p>
+              <p class="works__text">{{ item.item }}</p>
             </li>
           </ul>
         </div>
