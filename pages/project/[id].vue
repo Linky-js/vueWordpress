@@ -10,7 +10,7 @@ import Works from "~/components/Works.vue";
   <div>
     <FrontSingleProject />
     <AboutСustomer />
-     <Works />
+    <Works />
     <ResultBlock />
     <CallbackBlock btnColor="slime" />
   </div>
