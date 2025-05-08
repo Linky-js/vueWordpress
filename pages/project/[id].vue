@@ -49,6 +49,10 @@ onMounted(() => {
 </script>
 <template>
   <div>
+    <FrontSingleProject />
+    <AboutСustomer />
+    <Works />
+    <ResultBlock />
     <FrontSingleProject :frontSingleProject="frontSingleProject" />
     <AboutСustomer :aboutCustomer="aboutCustomer" />
     <Works :works="works" />

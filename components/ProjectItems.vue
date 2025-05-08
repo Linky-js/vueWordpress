@@ -58,7 +58,7 @@ const link = {
           <h4 class="projects__item-title">{{ project.title.rendered }}</h4>
           <ul class="projects__item-list">
             <li v-for="tag in project.categories" :key="tag.id" class="projects__item-point">
-              <NuxtLink :to="'/project-category/' + tag.slug" class="projects__item-link">
+              <NuxtLink :to="'/projects/' + tag.slug" class="projects__item-link">
                 {{ tag.name }}
               </NuxtLink>
             </li>

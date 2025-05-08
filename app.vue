@@ -99,7 +99,7 @@ watch(pathPage, (newPath) => {
 }
 
 .vertical-line-top {
-  height: 111%;
-  transform: translateX(-4px) translateY(-242px);
+  height: calc(100% + 238px);
+  transform: translateX(12px) translateY(-238px);
 }
 </style>
